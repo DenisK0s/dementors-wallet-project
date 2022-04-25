@@ -1,0 +1,72 @@
+.table_cell {
+  font-size: 16px;
+}
+@media only screen and (min-width: 768px) {
+  table .table_cell {
+    border: none !important;
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 767.9px) {
+  .table_cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .table_cell:before {
+    display: block;
+
+    padding: 10px;
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    text-align: left;
+    top: 0px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    color: #000000;
+    font-weight: 700;
+  }
+
+  /*
+	Label the data
+	*/
+  .table_cell:nth-of-type(1):before {
+    content: "Дата";
+  }
+  .table_cell:nth-of-type(2):before {
+    content: "Тип";
+  }
+  .table_cell:nth-of-type(3):before {
+    content: "Категория";
+  }
+  .table_cell:nth-of-type(4):before {
+    content: "Комментарий";
+  }
+  .table_cell:nth-of-type(5):before {
+    content: "Сумма";
+  }
+  .table_cell:nth-of-type(6):before {
+    content: "Баланс";
+  }
+}
+
+.green {
+  color: #24cca7;
+  font-weight: 700;
+}
+
+.red {
+  color: #ff6596;
+  font-weight: 700;
+}

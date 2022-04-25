@@ -1,0 +1,125 @@
+.header {
+  height: 60px;
+}
+
+.headerContainer {
+  display: flex;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoIcon {
+  width: 120px;
+  height: 30px;
+}
+
+.exitIcon {
+  align-self: center;
+  width: 18px;
+  height: 18px;
+}
+
+.rightContainerWrap {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logOutBtn {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 15px 0;
+}
+
+.header {
+  background-color: #fff;
+}
+
+.text {
+  font-family: "Circe";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #bdbdbd;
+}
+
+.logOutBtnText {
+  display: none;
+  composes: text;
+}
+
+.userName {
+  position: relative;
+  margin-right: 10px;
+  composes: text;
+}
+.headerContainer .outcomes,
+.headerContainer .incomes {
+  display: none;
+}
+.headerContainer .checkboxWrap {
+  margin: 0;
+  width: fit-content;
+  justify-content: space-between;
+}
+.headerContainer .knobs {
+  top: 5px;
+}
+.headerContainer .button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  margin-right: 10px;
+}
+.headerContainer .knobs:before {
+  content: "ru";
+  width: 20px;
+  height: 20px;
+  display: flex;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+.headerContainer .checkbox:checked + .knobs:before {
+  content: "en";
+  left: 0;
+}
+@media screen and (min-width: 768px) {
+  .logoIcon {
+    width: 181px;
+    height: 40px;
+  }
+
+  .logOutBtn {
+    margin-left: 24px;
+    padding: 20px 0;
+  }
+
+  .logOutBtnText {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  .userName::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: -11px;
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    background-color: #bdbdbd;
+  }
+
+  .exitIcon {
+    transform: translateY(-1.5px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 80px;
+  }
+}

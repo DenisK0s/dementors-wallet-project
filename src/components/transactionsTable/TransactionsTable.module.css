@@ -1,0 +1,130 @@
+.greetings p {
+  margin: 20px 0;
+}
+.greetingsSpan {
+  color: var(--green-color);
+  padding: 0 6px;
+}
+.arrowsBtnWrap {
+  display: none;
+  width: 80px;
+  position: absolute;
+  height: 60px;
+  margin-left: 310px;
+  top: 770px;
+  justify-content: space-between;
+}
+
+.loadMoreButton,
+.loadLessButton {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  color: var(--secondary-text-color);
+  border: transparent;
+  border-radius: 20px;
+  background-image: url('../../assets//images//icons/categories.svg');
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--secondary-text-color);
+}
+.loadLessButton {
+  margin-bottom: 20px;
+  transform: rotate(180deg);
+}
+.loadMoreButton {
+  /* margin-top: 45px; */
+  /* transform: rotate(-90deg); */
+}
+.loadLessButton:hover,
+.loadLessButton:active,
+.loadMoreButton:hover,
+.loadMoreButton:active {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+.loadMoreButton:disabled,
+.loadLessButton:disabled {
+  background-color: var(--placeholder-text-color);
+  box-shadow: none;
+}
+@media only screen and (max-width: 767.9px) {
+  .table {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0px 8px;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table_header {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table_row {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .table_row_green {
+    border-left: 6px solid #24cca7;
+  }
+
+  .table_row_red {
+    border-left: 6px solid #ff6596;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .arrowsBtnWrap {
+    display: flex;
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  thead .ths {
+    background-color: #fff;
+  }
+  thead .ths:first-child {
+    border-radius: 100px 0 0 100px;
+  }
+  thead .ths:last-child {
+    border-radius: 0 100px 100px 0;
+  }
+  /** Border Fix. **/
+  table .ths {
+    border: none !important;
+  }
+
+  .table_header {
+    height: 58px;
+  }
+  .table_row {
+    text-align: center;
+    min-height: 85px;
+    position: relative;
+  }
+
+  .table_row:not(:last-child) {
+    width: 100%;
+    border-bottom: 1px solid #dcdcdf;
+    box-shadow: 0 3px 2px -2px rgba(255, 255, 255, 0.6);
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .arrowsBtnWrap {
+    width: 30px;
+    display: block;
+    position: absolute;
+    height: 60px;
+    margin-left: -50px;
+    top: 320px;
+  }
+}

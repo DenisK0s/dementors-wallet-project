@@ -1,0 +1,14 @@
+.loaderWrap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.loaderContent {
+  display: block;
+  width: fit-content;
+  margin: 40vh auto;
+}
