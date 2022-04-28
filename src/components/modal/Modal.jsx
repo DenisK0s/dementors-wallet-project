@@ -67,9 +67,7 @@ export default function Modal({ lang, categoriesTest }) {
             e.stopPropagation();
           }}
         >
-          {isModalLogOutOpen && (
-            <ModalLogOut lang={lang} handleClose={handleClose} />
-          )}
+          {isModalLogOutOpen && <ModalLogOut handleClose={handleClose} />}
           {isAddTransactionModalOpen && (
             <ModalAddTransactions
               lang={lang}
@@ -77,9 +75,9 @@ export default function Modal({ lang, categoriesTest }) {
               testCategory={categoriesTest}
             />
           )}
-          {isLoginVerificationModalOpen && (
+          {/* {isLoginVerificationModalOpen && (
             <LoginVerificationModal lang={lang} handleClose={handleClose} />
-          )}
+          )} */}
         </div>
       </div>
     </>,
@@ -87,5 +85,6 @@ export default function Modal({ lang, categoriesTest }) {
   );
 }
 Modal.propTypes = {
+  // categoriesTest: PropTypes.func.isRequired,
   lang: PropTypes.bool.isRequired,
 };

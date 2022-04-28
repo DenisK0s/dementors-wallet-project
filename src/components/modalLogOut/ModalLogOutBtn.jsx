@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import modalActions from 'redux/global/global-actions';
 import style from '../header/Header.module.css';
 import { ReactComponent as ExitIcon } from 'assets/images/icons/exit.svg';
-export default function ModalLogOutBtn({ lang }) {
+import { useTranslation } from 'react-i18next';
+export default function ModalLogOutBtn() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const handleOpen = () => {
     dispatch(modalActions.openModal());
@@ -18,7 +20,7 @@ export default function ModalLogOutBtn({ lang }) {
       }}
     >
       <ExitIcon className={style.exitIcon} />
-      <span className={style.logOutBtnText}>{lang ? 'Exit' : 'Выйти'}</span>
+      <span className={style.logOutBtnText}>{t('headerExitBtn')}</span>
     </button>
   );
 }

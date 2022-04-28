@@ -1,18 +1,17 @@
 import s from './Money.module.css';
-import { useSelector } from 'react-redux';
-import globalSelectors from 'redux/global/global-selectors';
+import { useTranslation } from 'react-i18next';
 const TableHeader = () => {
-  const lang = useSelector(globalSelectors.lang);
+  const { t } = useTranslation();
   return (
     <thead className={`${s.tableRow} ${s.tableRowHeader}`}>
       <tr className={s.tableCell}>
-        <td>{lang ? 'Currency' : 'Валюта'}</td>
+        <td>{t('currency')}</td>
       </tr>
       <tr className={s.tableCell}>
-        <td>{lang ? 'Purchase' : 'Покупка'}</td>
+        <td>{t('currencyPurchase')}</td>
       </tr>
       <tr className={s.tableCell}>
-        <td>{lang ? 'Sale' : 'Продажа'}</td>
+        <td>{t('currencySale')}</td>
       </tr>
     </thead>
   );

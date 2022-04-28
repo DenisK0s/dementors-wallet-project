@@ -1,6 +1,7 @@
 import Select, { components } from 'react-select';
 import IndicatorArrow from '../../assets/images/icons/categories.svg';
 import ClearIcon from '../../assets/images/icons/close.svg';
+import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 // import categoriesSelectors from '../../redux/categories/categories-selectors';
@@ -11,6 +12,7 @@ export default function TransactionsCategoriesSelect({
   type,
   categories,
 }) {
+  const { t } = useTranslation();
   const options = () => {
     const takeLange = lang
       ? categories.categories.categoryList.en
@@ -133,7 +135,7 @@ export default function TransactionsCategoriesSelect({
       styles={customStyles}
       isDisabled={newCategory}
       isClearable={true}
-      placeholder={lang ? 'Choose a category' : 'Выберите категорию'}
+      placeholder={t('modalAddTransactionSelectPlaceholder')}
       onChange={e => {
         onChange(e);
       }}

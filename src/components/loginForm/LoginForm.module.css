@@ -9,6 +9,13 @@
   padding-bottom: 110px;
   background: #ffffff;
 }
+.formTitleWrap {
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  margin-left: 10px;
+}
 @media screen and (min-width: 768px) {
   .formRegister {
     margin-bottom: 195px;
@@ -29,7 +36,7 @@
   position: relative;
   min-width: 280px;
   height: 34px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -52,7 +59,7 @@
 
 input::placeholder {
   text-indent: 40px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -92,7 +99,7 @@ label {
   margin-bottom: 20px;
   border: none;
   outline: none;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -132,7 +139,7 @@ label {
   border: 1px solid #4a56e2;
   box-sizing: border-box;
   border-radius: 20px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
