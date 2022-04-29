@@ -1,0 +1,55 @@
+{
+  "registerFormEmail": "E-mail",
+  "registerFormPassword": "Password",
+  "registerFormConfirmPassword": "Confirm your password",
+  "registerFormName": "Your name",
+  "registerFormLoginBtn": "Log in",
+  "registerFormSignupBtn": "Sign up",
+
+  "headerExitBtn": "Exit",
+
+  "modalLogOutQuestion": "Are you sure you want to exit the app?",
+  "modalLogOutCancelBtn": "No",
+  "modalLogOutAcceptBtn": "Yes",
+
+  "navHomeLink": "Home",
+  "navStatisticsLink": "Statistics",
+
+  "balanceTitle": "Your balance",
+
+  "currency": "Currency",
+  "currencyPurchase": "Purchase",
+  "currencySale": "Sale",
+
+  "statisticsTitle": "Statistics",
+  "statisticsCategory": "Category",
+  "statisticsAmounts": "Category",
+  "statisticsOutcomes": "Outcomes",
+  "statisticsIncomes": "Incomes",
+
+  "modalAddTransactionTitle": "Add a transaction",
+  "modalAddTransactionErrorMsg": "The process of adding a transaction can take a little more time because of you add an old transaction.",
+  "modalAddTransactionIncomesType": "Incomes",
+  "modalAddTransactionOutcomesType": "Outcomes",
+  "modalAddTransactionNewCategory": "Name of the new category",
+  "modalAddTransactionComment": "Comment",
+  "modalAddTransactionCancelBtn": "Cancel",
+  "modalAddTransactionAcceptBtn": "Add",
+  "modalAddTransactionSelectPlaceholder": "Select a category",
+
+  "transactionsTableDate": "Date",
+  "transactionsTableType": "Type",
+  "transactionsTableCategory": "Category",
+  "transactionsTableComment": "Comment",
+  "transactionsTableAmount": "Amount",
+  "transactionsTableBalance": "Balance",
+  "transactionsTableTitle": "Hello",
+  "transactionsTableFirstParagraph": "The Wallet app will help you control your money transactions conveniently and easily.",
+  "transactionsTableSecondParagraph": "you don't have any transactions yet. To add a new transaction, click on the plus in the lower right corner.",
+  "transactionsTableThirdParagraph": " And we want to draw your attention to the fact that the first transaction must be with specified type 'Incomes'    in order to make it possible to display the current balance of funds and track money transactions.",
+
+  "progressSwitchWeak": "Weak",
+  "progressSwitchNormal": "Normal",
+  "progressSwitchSecure": "Secure",
+  "progressSwitchSecure100": "Really reliable"
+}

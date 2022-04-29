@@ -1,59 +1,34 @@
 import classNames from 'classnames';
-import styles from '../modalAddTransactions/ModalAddTransactions.module.css';
 import s from './Header.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import modalActions from '../../redux/global/global-actions';
-import PropTypes from 'prop-types';
-
-export default function LangCheckbox({ lang }) {
+import { useTranslation } from 'react-i18next';
+import globalSelectors from '../../redux/global/global-selectors';
+export default function LangCheckbox() {
+  const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const { changeLanguage } = modalActions;
+  const lang = useSelector(globalSelectors.lang);
   const handleCheckbox = e => {
-    e.target.checked === true
-      ? dispatch(changeLanguage(true))
-      : dispatch(changeLanguage(false));
+    return e.target.checked === true
+      ? (dispatch(changeLanguage(true)), i18n.changeLanguage('en'))
+      : (dispatch(changeLanguage(false)), i18n.changeLanguage('ru'));
   };
   return (
-    <div className={classNames(styles.checkboxWrap, s.checkboxWrap)}>
-      <span
-        style={{ position: 'unset' }}
-        className={
-          lang === true
-            ? classNames(styles.incomes, styles.incomesActive, s.incomes)
-            : classNames(styles.incomes, s.incomes)
-        }
-      >
-        English
-      </span>
+    <div className={s.checkboxWrap}>
       <label htmlFor="lang">
-        <div
-          className={classNames(styles.button, styles.r, s.button, s.r)}
-          id={'button-2'}
-        >
+        <div className={classNames(s.button, s.r)} id={'button-2'}>
           <input
             type="checkbox"
-            className={classNames(styles.checkbox, s.checkbox)}
+            className={s.checkbox}
             name="lang"
-            onClick={handleCheckbox}
+            checked={lang}
+            onChange={handleCheckbox}
           />
-
-          <div className={classNames(styles.knobs, s.knobs)}></div>
-          <div className={classNames(styles.layer, s.layer)}></div>
+          <div className={s.knobs}></div>
+          <div className={s.layer}></div>
         </div>
       </label>
-      <span
-        style={{ position: 'unset' }}
-        className={
-          lang === false
-            ? classNames(styles.outcomes, styles.outcomesActive, s.outcomes)
-            : classNames(styles.outcomes, s.outcomes)
-        }
-      >
-        Русский
-      </span>
     </div>
   );
 }
-LangCheckbox.propTypes = {
-  lang: PropTypes.bool.isRequired,
-};

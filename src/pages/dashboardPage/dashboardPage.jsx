@@ -1,19 +1,19 @@
-import Container from "components/сontainer/Container";
-import React, { Fragment, useEffect, useState } from "react";
-import Media from "react-media";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useLocation } from "react-router-dom";
-import categoriesSelectors from "redux/categories/categories-selectors";
-import globalSelectors from "redux/global/global-selectors";
-import Balance from "../../components/balance";
-import Header from "../../components/header";
-import Modal from "../../components/modal";
-import { ModalAddTransactionsBtn } from "../../components/modalAddTransactions";
-import Currency from "../../components/money";
-import Nav from "../../components/nav";
-import categoriesOperations from "../../redux/categories/categories-operations";
+import Container from 'components/сontainer/Container';
+import React, { Fragment, useEffect, useState } from 'react';
+import Media from 'react-media';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet, useLocation } from 'react-router-dom';
+import categoriesSelectors from 'redux/categories/categories-selectors';
+import globalSelectors from 'redux/global/global-selectors';
+import Balance from '../../components/balance';
+import Header from '../../components/header';
+import Modal from '../../components/modal';
+import { ModalAddTransactionsBtn } from '../../components/modalAddTransactions';
+import Currency from '../../components/money';
+import Nav from '../../components/nav';
+import categoriesOperations from '../../redux/categories/categories-operations';
 // import transactionsOperations from "../../redux/transactions/transaction-operations";
-import s from "./dashboardPage.module.css";
+import s from './dashboardPage.module.css';
 // import categoriesSelectors from '../../redux/categories/categories-selectors';
 
 const DashboardPage = () => {
@@ -25,7 +25,7 @@ const DashboardPage = () => {
   const isModalOpen = useSelector(globalSelectors.isModalOpen);
   const test = useSelector(categoriesSelectors.getCategories);
   useEffect(() => {
-    setDisplay(path === "/exchange-rate" ? true : false);
+    setDisplay(path === '/exchange-rate' ? true : false);
     dispatch(categoriesOperations.getCategories());
     // dispatch(transactionsOperations.fetchTransactions());
   }, [path, dispatch]);
@@ -35,7 +35,7 @@ const DashboardPage = () => {
   //   }, [dispatch]);
   return (
     <>
-      <Header lang={lang} />
+      <Header />
       <Container>
         <div className={s.wrapper}>
           <main className={s.main}>
@@ -46,13 +46,13 @@ const DashboardPage = () => {
                   other: { minWidth: 768 },
                 }}
               >
-                {(matches) => {
+                {matches => {
                   return (
                     <Fragment>
                       {matches.mobile && (
                         <>
                           <section className={s.nav}>
-                            <Nav lang={lang} />
+                            <Nav />
                           </section>
                           {display ? (
                             <section className={s.currency}>
@@ -60,7 +60,7 @@ const DashboardPage = () => {
                             </section>
                           ) : (
                             <>
-                              <Balance lang={lang} />
+                              <Balance />
                               <article className={s.box}>
                                 <Outlet />
                               </article>
@@ -72,9 +72,9 @@ const DashboardPage = () => {
                         <>
                           <aside className={s.aside}>
                             <section className={s.nav}>
-                              <Nav lang={lang} />
+                              <Nav />
                             </section>
-                            <Balance lang={lang} />
+                            <Balance />
                             <section className={s.currency}>
                               <Currency />
                             </section>

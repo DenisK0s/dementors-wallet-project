@@ -42,12 +42,45 @@
   color: var(--secondary-text-color);
   margin-bottom: 20px;
 }
+.acceptBtn:hover,
+.acceptBtn:focus {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.acceptBtn:active {
+  top: 2px;
+}
 .cancelBtn {
+  position: relative;
   background: var(--secondary-text-color);
   border: 1px solid var(--blue-color);
   color: var(--blue-color);
 }
-
+.cancelBtn:hover,
+.cancelBtn:focus {
+  color: var(--primary-bg-color);
+  border: 0.5px solid var(--blue-color);
+}
+.cancelBtn:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  direction: rtl;
+  z-index: -1;
+  background: var(--blue-color);
+  transition: all 1s ease;
+}
+.cancelBtn:hover:after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+.cancelBtn:active {
+  top: 2px;
+}
 .checkboxWrap {
   width: 220px;
   margin: 20px auto 30px auto;

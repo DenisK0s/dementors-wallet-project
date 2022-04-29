@@ -3,37 +3,26 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 320px;
+  width: 280px;
   z-index: 101;
-
-  padding-top: 36px;
-  padding-bottom: 36px;
-  background: #ffffff;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  background: var(--primary-bg-color);
+}
+.formTitleWrap {
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  /* position: relative; */
+  margin-left: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .formRegister {
-    margin-bottom: 50px;
-    width: 540px;
-    height: 615px;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    border-radius: 20px;
-    top: 360px;
-    right: 114px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .formRegister {
-    margin-bottom: 0;
-    margin-left: 140px;
-  }
-}
 .input {
   position: relative;
   min-width: 280px;
   height: 34px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -41,30 +30,21 @@
   margin-bottom: 40px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--placeholder-icon-color);
   text-indent: 40px;
   padding: 0;
-}
-@media screen and (min-width: 768px) {
-  .input {
-    width: 409.5px;
-    height: 34px;
-    display: flex;
-    justify-content: center;
-  }
 }
 
 input::placeholder {
   text-indent: 40px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 27px;
   padding-bottom: 10px;
-  color: #bdbdbd;
+  color: var(--placeholder-text-color);
 }
-
 .inputTop {
   margin-top: 50px;
 }
@@ -73,8 +53,11 @@ label {
   display: flex;
   align-items: center;
 }
+.input_wrap {
+  position: relative;
+}
 .icon {
-  z-index: 1;
+  z-index: 99;
   position: absolute;
   top: 4px;
   left: 0;
@@ -83,18 +66,19 @@ label {
 }
 
 .btn {
+  position: relative;
   width: 280px;
   height: 50px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #24cca7;
+  background-color: var(--green-color);
   border-radius: 20px;
   margin-bottom: 20px;
   border: none;
   outline: none;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -102,26 +86,24 @@ label {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--primary-bg-color);
   cursor: pointer;
-}
-.btn:hover,
-.btn:focus {
-  border: 1px solid #24cca7;
-  color: #24cca7;
-  background-color: #ffffff;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  z-index: 1;
 }
 
-@media screen and (min-width: 768px) {
-  .btn {
-    width: 300px;
-    height: 50px;
-  }
+.btn:hover,
+.btn:focus {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.btn:active,
+.btn1:active {
+  top: 2px;
 }
 
 .btn1 {
+  position: relative;
   margin: 0;
   width: 280px;
   height: 50px;
@@ -129,11 +111,11 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #24cca7;
+  background: var(--primary-bg-color);
+  border: 1px solid var(--blue-color);
   box-sizing: border-box;
   border-radius: 20px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -142,32 +124,40 @@ label {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  color: #4a56e2;
+  color: var(--blue-color);
+  z-index: 1;
+  overflow: hidden;
 }
 
 .btn1:hover,
 .btn1:focus {
-  color: #ffffff;
-  background-color: #4a56e2;
-  border: 1px solid #4a56e2;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-bg-color);
+  border: 0.5px solid var(--blue-color);
 }
-@media screen and (min-width: 768px) {
-  .btn1 {
-    margin: 0;
-    width: 300px;
-    height: 50px;
-  }
+.btn1:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  direction: rtl;
+  z-index: -1;
+  background: var(--blue-color);
+  transition: all 1s ease;
 }
-
-.input_wrap {
-  position: relative;
+.btn1:hover:after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+.btn1:active {
+  top: 2px;
 }
 .error {
   position: absolute;
   font-size: 12px;
-  color: #ff6596;
+  color: var(--red-color);
   font-weight: 500;
   top: 0%;
   left: 50%;
@@ -175,7 +165,41 @@ label {
   z-index: 50;
 }
 @media screen and (min-width: 768px) {
+  .btn {
+    width: 300px;
+    height: 50px;
+  }
+  .btn1 {
+    margin: 0;
+    width: 300px;
+    height: 50px;
+  }
   .error {
     font-size: 14px;
+  }
+  .formRegister {
+    /*margin-top: 50px;*/
+    margin-bottom: 195px;
+    width: 540px;
+    min-height: 468px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    border-radius: 20px;
+  }
+  .input {
+    width: 409.5px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .formRegister {
+    /*top: 136px;
+    right: 85px;*/
+    margin-top: 135px;
+    margin-bottom: 115px;
+    margin-left: 140px;
   }
 }

@@ -3,15 +3,13 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import logOut from '../../redux/auth/auth-operations';
 import modalActions from 'redux/global/global-actions';
-export default function ModalLogOut({ handleClose, lang }) {
+import { useTranslation } from 'react-i18next';
+export default function ModalLogOut({ handleClose }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   return (
     <>
-      <p>
-        {lang
-          ? 'Are you sure you want to exit the app?'
-          : 'Вы действительно хотите выйти?'}
-      </p>
+      <p>{t('modalLogOutQuestion')}</p>
       <div className={s.btnWrap}>
         <button
           type="button"
@@ -21,7 +19,7 @@ export default function ModalLogOut({ handleClose, lang }) {
             dispatch(modalActions.modalLogOutClose());
           }}
         >
-          {lang ? 'No' : 'Нет'}
+          {t('modalLogOutCancelBtn')}
         </button>
         <button
           type="button"
@@ -32,7 +30,7 @@ export default function ModalLogOut({ handleClose, lang }) {
             dispatch(logOut.logOut());
           }}
         >
-          {lang ? 'Yes' : 'Да'}
+          {t('modalLogOutAcceptBtn')}
         </button>
       </div>
     </>
@@ -40,5 +38,4 @@ export default function ModalLogOut({ handleClose, lang }) {
 }
 ModalLogOut.propTypes = {
   handleClose: PropTypes.func.isRequired,
-  lang: PropTypes.bool.isRequired,
 };

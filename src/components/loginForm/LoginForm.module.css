@@ -9,27 +9,19 @@
   padding-bottom: 110px;
   background: #ffffff;
 }
-@media screen and (min-width: 768px) {
-  .formRegister {
-    margin-bottom: 195px;
-    width: 540px;
-    min-height: 468px;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    border-radius: 20px;
-  }
+.formTitleWrap {
+  display: flex;
+  align-items: center;
 }
-@media screen and (min-width: 1280px) {
-  .formRegister {
-    margin-bottom: 0;
-    margin-left: 140px;
-  }
+.checkbox {
+  margin-left: 10px;
 }
+
 .input {
   position: relative;
   min-width: 280px;
   height: 34px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -41,18 +33,10 @@
   text-indent: 40px;
   padding: 0;
 }
-@media screen and (min-width: 768px) {
-  .input {
-    width: 409.5px;
-    height: 34px;
-    display: flex;
-    justify-content: center;
-  }
-}
 
 input::placeholder {
   text-indent: 40px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -81,18 +65,19 @@ label {
 }
 
 .btn {
+  position: relative;
   width: 280px;
   height: 50px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #24cca7;
+  background-color: var(--green-color);
   border-radius: 20px;
   margin-bottom: 20px;
   border: none;
   outline: none;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -100,39 +85,35 @@ label {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--primary-bg-color);
   cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .btn:hover,
 .btn:focus {
-  border: 1px solid #24cca7;
-  color: #24cca7;
-  background-color: #ffffff;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-@media screen and (min-width: 768px) {
-  .btn {
-    width: 300px;
-    height: 50px;
-  }
+.btn:active {
+  top: 2px;
 }
 
 .btn1 {
-  margin: 0;
+  position: relative;
   width: 280px;
   height: 50px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
-  border: 1px solid #4a56e2;
+  background: var(--primary-bg-color);
+  border: 1px solid var(--blue-color);
   box-sizing: border-box;
   border-radius: 20px;
-  font-family: "Circe";
+  font-family: 'Circe';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -141,26 +122,37 @@ label {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  color: #4a56e2;
+  color: var(--blue-color);
+  z-index: 1;
+  overflow: hidden;
 }
 
 .btn1:hover,
 .btn1:focus {
-  color: #ffffff;
-  background-color: #4a56e2;
-  border: 1px solid #4a56e2;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-bg-color);
+  border: 0.5px solid var(--blue-color);
+}
+.btn1:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  direction: rtl;
+  z-index: -1;
+  background: var(--blue-color);
+  transition: all 1s ease;
+}
+.btn1:hover:after {
+  right: auto;
+  left: 0px;
+  width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-  .btn1 {
-    margin: 0;
-    width: 300px;
-    height: 50px;
-  }
+.btn1:active {
+  top: 2px;
 }
-
 .error {
   position: absolute;
   font-size: 12px;
@@ -171,8 +163,38 @@ label {
   transform: translate(-50%, -50%);
   z-index: 50;
 }
+
 @media screen and (min-width: 768px) {
+  .btn {
+    width: 300px;
+    height: 50px;
+  }
+  .btn1 {
+    margin: 0;
+    width: 300px;
+    height: 50px;
+  }
   .error {
     font-size: 14px;
+  }
+  .input {
+    width: 409.5px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+  }
+  .formRegister {
+    margin-bottom: 195px;
+    width: 540px;
+    min-height: 468px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    border-radius: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .formRegister {
+    margin-bottom: 0;
+    margin-left: 140px;
   }
 }

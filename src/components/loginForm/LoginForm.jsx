@@ -4,12 +4,13 @@ import * as Yup from 'yup';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import s from './LoginForm.module.css';
-
+import LangCheckbox from 'components/header/LangCheckbox';
 import TextInput from '../textInput';
 import Logo from '../logo';
 import { ReactComponent as EmailIcon } from '../../assets/images/icons/email.svg';
 import { ReactComponent as LockIcon } from '../../assets/images/icons/lock.svg';
 import authOperations from '../../redux/auth/auth-operations';
+import { useTranslation } from 'react-i18next';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -24,6 +25,7 @@ const SignupSchema = Yup.object().shape({
     .required('Обязательное поле'),
 });
 export default function LoginForm() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const handleSubmit = user => {
     dispatch(authOperations.logIn(user));
@@ -54,14 +56,19 @@ export default function LoginForm() {
           dirty,
         }) => (
           <Form className={s.formRegister}>
-            <Logo className={s.logo} />
+            <div className={s.formTitleWrap}>
+              <Logo className={s.logo} />
+              <div className={s.checkbox}>
+                <LangCheckbox />
+              </div>
+            </div>
             <div className={classNames(s.input_wrap, s.inputTop)}>
               {touched.email && errors.email && (
                 <span className={s.error}>{errors.email}</span>
               )}
               <TextInput
                 label={<EmailIcon className={s.icon} />}
-                placeholder="E-mail"
+                placeholder={t('registerFormEmail')}
                 className={s.input}
                 type={`email`}
                 name={`email`}
@@ -77,7 +84,7 @@ export default function LoginForm() {
               <TextInput
                 label={<LockIcon className={s.icon} />}
                 className={s.input}
-                placeholder="Пароль"
+                placeholder={t('registerFormPassword')}
                 type={`password`}
                 name={`password`}
                 onChange={handleChange}
@@ -90,14 +97,14 @@ export default function LoginForm() {
               disabled={!isValid || !dirty}
               type={`submit`}
             >
-              ВХОД
+              {t('registerFormLoginBtn')}
             </button>
             <Link
               to="/register"
               className={s.btn1}
               style={{ textDecoration: 'none' }}
             >
-              Регистрация
+              {t('registerFormSignupBtn')}
             </Link>
           </Form>
         )}

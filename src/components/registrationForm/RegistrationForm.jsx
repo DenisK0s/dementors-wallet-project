@@ -4,7 +4,8 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
 import classNames from 'classnames';
-
+import LangCheckbox from 'components/header/LangCheckbox';
+import { useTranslation } from 'react-i18next';
 import Logo from '../logo';
 import TextInput from '../textInput';
 import ProgressSwitch from './ProgressSwitch';
@@ -34,8 +35,9 @@ const RegistrationSchema = Yup.object().shape({
     .required('Обязательное поле'),
 });
 export default function RegisterForm() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const handleSubmit = ({ name, email, password }) => {
     dispatch(authOperations.register({ name, email, password }));
   };
@@ -52,7 +54,7 @@ export default function RegisterForm() {
         onSubmit={(values, { resetForm }) => {
           handleSubmit(values);
           resetForm();
-          navigate('/login')
+          navigate('/login');
         }}
         validationSchema={RegistrationSchema}
       >
@@ -66,14 +68,19 @@ export default function RegisterForm() {
           dirty,
         }) => (
           <Form className={s.formRegister}>
-            <Logo />
+            <div className={s.formTitleWrap}>
+              <Logo />
+              <div className={s.checkbox}>
+                <LangCheckbox />
+              </div>
+            </div>
             <div className={classNames(s.input_wrap, s.inputTop)}>
               {touched.email && errors.email && (
                 <span className={s.error}>{errors.email}</span>
               )}
               <TextInput
                 label={<EmailIcon className={s.icon} />}
-                placeholder="E-mail"
+                placeholder={t('registerFormEmail')}
                 className={s.input}
                 type="email"
                 name="email"
@@ -89,7 +96,7 @@ export default function RegisterForm() {
               <TextInput
                 label={<LockIcon className={s.icon} />}
                 className={s.input}
-                placeholder="Пароль"
+                placeholder={t('registerFormPassword')}
                 type="password"
                 name="password"
                 error={errors.password}
@@ -104,7 +111,7 @@ export default function RegisterForm() {
               )}
               <TextInput
                 label={<LockIcon className={s.icon} />}
-                placeholder="Подтвердите пароль"
+                placeholder={t('registerFormConfirmPassword')}
                 className={s.input}
                 type="password"
                 name="confirmPassword"
@@ -121,7 +128,7 @@ export default function RegisterForm() {
               )}
               <TextInput
                 label={<UserIcon className={s.icon} />}
-                placeholder="Ваше Имя"
+                placeholder={t('registerFormName')}
                 className={s.input}
                 type="text"
                 name="name"
@@ -135,14 +142,14 @@ export default function RegisterForm() {
               disabled={!isValid || !dirty}
               type="submit"
             >
-              Регистрация
+              {t('registerFormSignupBtn')}
             </button>
             <NavLink
               to="/login"
               className={s.btn1}
               style={{ textDecoration: 'none' }}
             >
-              ВХОД
+              {t('registerFormLoginBtn')}
             </NavLink>
           </Form>
         )}
