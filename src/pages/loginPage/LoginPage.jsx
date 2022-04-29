@@ -1,16 +1,38 @@
-import LoginForm from "../../components/loginForm";
-import BackgroundContainer from "components/backgroundContainer";
-import React from "react";
-import s from "../registrationPage/RegistrationPage.module.css";
+import LoginForm from '../../components/loginForm';
+import BackgroundContainer from 'components/backgroundContainer';
+import React, { useEffect, useState } from 'react';
+import s from '../registrationPage/RegistrationPage.module.css';
+import animationStyles from '../../assets/css/appearAnimation.module.css';
+import { CSSTransition } from 'react-transition-group';
 
 const LoginPage = () => {
+  const [animation, setAnimation] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      return setAnimation(true), 200;
+    });
+  });
   return (
     <BackgroundContainer>
       <div className={s.wrapper}>
         <div className={`${s.box} ${s.picture}`}>
-          <p className={s.title}>Finance App</p>
+          <CSSTransition
+            in={animation}
+            timeout={1000}
+            classNames={animationStyles}
+            unmountOnExit
+          >
+            <p className={s.title}>Finance App</p>
+          </CSSTransition>
         </div>
-        <LoginForm />
+        <CSSTransition
+          in={animation}
+          timeout={1000}
+          classNames={animationStyles}
+          unmountOnExit
+        >
+          <LoginForm />
+        </CSSTransition>
         <div className={s.ellipseBlur}></div>
       </div>
     </BackgroundContainer>
