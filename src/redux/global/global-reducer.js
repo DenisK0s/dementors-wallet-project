@@ -66,8 +66,7 @@ const error = createReducer(null, {
     toast.error(payload),
   [transactionsOperations.fetchTransactions.rejected]: (_, { payload }) =>
     toast.error(payload),
-  [transactionsOperations.addTransaction.rejected]: (_, { payload }) =>
-    payload,
+  [transactionsOperations.addTransaction.rejected]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
