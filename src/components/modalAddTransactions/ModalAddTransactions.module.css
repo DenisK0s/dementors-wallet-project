@@ -55,6 +55,8 @@
   background: var(--secondary-text-color);
   border: 1px solid var(--blue-color);
   color: var(--blue-color);
+  z-index: 1;
+  overflow: hidden;
 }
 .cancelBtn:hover,
 .cancelBtn:focus {
@@ -154,9 +156,9 @@
   width: 44px;
   height: 44px;
   top: -4px;
-  left: 42px;
-  background-color: var(--red-color);
-  box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+  left: -4px;
+  background-color: var(--green-color);
+  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
   color: #fff;
   background-repeat: no-repeat;
   background-position: center;
@@ -169,16 +171,18 @@
   transition: 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
 }
 .knobsTransactions:before {
-  background-image: url('../../assets/images/icons/outcomes.svg');
+  background-image: url('../../assets/images/icons/+.svg');
 }
 .checkbox:checked + .knobs:before {
   content: '';
-  left: -4px;
-  background-color: var(--green-color);
-  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+
+  left: 42px;
+  background-color: var(--red-color);
+
+  box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
 }
 .checkbox:checked + .knobsTransactions:before {
-  background-image: url('../../assets/images/icons/+.svg');
+  background-image: url('../../assets/images/icons/outcomes.svg');
 }
 .knobs,
 .knobs:before,

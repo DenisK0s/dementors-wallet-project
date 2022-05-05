@@ -8,17 +8,15 @@ import BackgroundContainer from 'components/backgroundContainer/BackgroundContai
 const RegistrationPage = () => {
   const [animation, setAnimation] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      return setAnimation(true), 200;
-    });
-  });
+    return setAnimation(true);
+  }, [animation]);
   return (
     <BackgroundContainer>
       <div className={s.wrapper}>
         <div className={s.box}>
           <CSSTransition
             in={animation}
-            timeout={1000}
+            timeout={1200}
             classNames={animationStyles}
             unmountOnExit
           >
@@ -27,7 +25,7 @@ const RegistrationPage = () => {
         </div>
         <CSSTransition
           in={animation}
-          timeout={1000}
+          timeout={1200}
           classNames={animationStyles}
           unmountOnExit
         >

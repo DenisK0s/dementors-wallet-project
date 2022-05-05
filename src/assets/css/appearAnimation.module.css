@@ -5,5 +5,12 @@
 .enterActive {
   opacity: 1;
   /* transform: scale(1); */
-  transition: opacity 1000ms;
+  transition: opacity 500ms;
+}
+.exit {
+  opacity: 1;
+}
+.exitActive {
+  transition: opacity 500ms;
+  opacity: 0;
 }

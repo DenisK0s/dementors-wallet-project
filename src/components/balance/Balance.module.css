@@ -1,13 +1,11 @@
 .container {
   padding: 8px 40px 13px 40px;
-
   width: 100%;
-  margin-top: -15px px;
   background-color: white;
   border-radius: 30px;
   height: auto;
   max-height: 80px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .text {
   font-family: 'Circe';
@@ -46,5 +44,6 @@
 @media screen and (min-width: 1280px) {
   .container {
     width: 348px;
+    margin-bottom: 40px;
   }
 }

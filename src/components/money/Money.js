@@ -1,7 +1,6 @@
 import s from './Money.module.css';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
-import Svg from './Svg';
 import { getExchangeRates } from 'api/money';
 import { useEffect, useState } from 'react';
 export default function Money() {
@@ -28,7 +27,6 @@ export default function Money() {
           return <TableRow key={item.ccy} date={item} />;
         })}
       </tbody>
-      <Svg />
     </table>
   );
 }
