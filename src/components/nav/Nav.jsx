@@ -12,10 +12,10 @@ const Nav = () => {
       <ul className={s.list}>
         <li className={s.item}>
           <NavLink
+            to="/wallet/transactions"
             className={({ isActive }) =>
               [s.link, isActive ? s.active : ''].join(' ')
             }
-            to="/wallet"
           >
             <HomeIcon className={s.icon} />
             <span className={s.linkText}>{t('navHomeLink')}</span>
@@ -23,10 +23,10 @@ const Nav = () => {
         </li>
         <li className={s.item}>
           <NavLink
+            to="/wallet/stat"
             className={({ isActive }) =>
               [s.link, isActive ? s.active : ''].join(' ')
             }
-            to="/wallet/stat"
           >
             <StatsIcon className={s.icon} />
             <span className={s.linkText}>{t('navStatisticsLink')}</span>
@@ -37,7 +37,7 @@ const Nav = () => {
             className={({ isActive }) =>
               [s.link, isActive ? s.active : ''].join(' ')
             }
-            to="/exchange-rate"
+            to="/wallet/exchange-rate"
           >
             <DollarIcon className={s.icon} />
           </NavLink>

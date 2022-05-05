@@ -2,7 +2,6 @@ import Transaction from 'components/transaction';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
-import globalSelectors from '../../redux/global/global-selectors';
 import transactionsOperations from '../../redux/transactions/transaction-operations';
 import {
   getTransactions,
@@ -14,7 +13,6 @@ import { setPage } from '../../redux/transactions/transaction-actions';
 
 export default function TransactionsTable({ page }) {
   const userName = useSelector(authSelectors.getUsername);
-  const lang = useSelector(globalSelectors.lang);
   const transactions = useSelector(getTransactions);
   const { t } = useTranslation();
   const currentPage = useSelector(getCurrentPage);

@@ -2,9 +2,8 @@ import Select, { components } from 'react-select';
 import IndicatorArrow from '../../assets/images/icons/categories.svg';
 import ClearIcon from '../../assets/images/icons/close.svg';
 import { useTranslation } from 'react-i18next';
-// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-// import categoriesSelectors from '../../redux/categories/categories-selectors';
+
 export default function TransactionsCategoriesSelect({
   onChange,
   newCategory,
@@ -50,7 +49,8 @@ export default function TransactionsCategoriesSelect({
       ...provided,
       width: '100%',
       backgroundColor: 'rgba(255,255,255,0.5)',
-      backdropFilter: 'blur(10px)',
+      backdropFilter: 'blur(8px)',
+      zIndex: '2',
     }),
 
     indicatorSeparator: () => ({
@@ -112,6 +112,7 @@ export default function TransactionsCategoriesSelect({
       fontSize: '18px',
       backgroundColor: 'transparent',
       color: 'inherit',
+
       padding: '20px',
       '&:hover': {
         color: '#ff6596',

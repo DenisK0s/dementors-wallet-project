@@ -4,7 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
-  /* overflow: auto; */
+  overflow-x: hidden;
   background: rgba(228, 218, 218, 0.4);
 }
 /* @media screen and (min-device-pixel-ratio: 2),

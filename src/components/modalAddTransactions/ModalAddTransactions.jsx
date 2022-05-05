@@ -42,7 +42,7 @@ export default function ModalAddTransactions({
   const [dateFiltr, setDateFiltr] = useState(new Date(today).getTime());
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
-  const [transactionType, setTransactionType] = useState('-');
+  const [transactionType, setTransactionType] = useState('+');
   const [newCategory, setNewCategory] = useState('');
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -50,8 +50,8 @@ export default function ModalAddTransactions({
 
   const handleCheckbox = e => {
     e.target.checked === true
-      ? setTransactionType('+')
-      : setTransactionType('-');
+      ? setTransactionType('-')
+      : setTransactionType('+');
   };
 
   const onChangeCategory = e => {
