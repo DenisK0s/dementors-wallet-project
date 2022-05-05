@@ -5,13 +5,13 @@
 }
 
 .page-enter {
-  transform: translateY(-30%) scale(0);
+  /* transform: translateX(-100%) scale(0); */
   opacity: 0;
 }
 
 .page-enter-active {
-  transform: translateY(0) scale(1);
-  transition: transform 450ms ease-in, opacity 400ms ease-out;
+  /* transform: translateX(0) scale(1); */
+  transition: opacity 600ms ease-out;
   opacity: 1;
 }
 

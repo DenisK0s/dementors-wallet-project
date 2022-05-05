@@ -46,7 +46,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .nav {
-    width: 50%;
+    width: fit-content;
     top: 128px;
   }
   .currency {
@@ -74,6 +74,7 @@
     width: 820px;
     padding-bottom: 150px;
     border-left: 1px solid var(--first-bg-color);
+    box-shadow: 5px 2px 2px -5px rgba(255, 255, 255, 0.9) inset;
     /* box-shadow: inset -1px 0px 0px rgb(0 0 0 / 5%),
       1px 0px 0px rgb(255 255 255 / 60%); */
   }
@@ -95,5 +96,8 @@
   }
   .currency {
     position: relative;
+  }
+  .nav {
+    width: fit-content;
   }
 }

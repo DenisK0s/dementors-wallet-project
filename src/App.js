@@ -57,7 +57,7 @@ export default function App() {
             <TransitionGroup>
               <CSSTransition
                 key={location.key}
-                timeout={1000}
+                timeout={600}
                 classNames="page"
                 unmountOnExit
               >
