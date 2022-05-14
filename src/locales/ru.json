@@ -41,8 +41,8 @@
   "transactionsTableType": "Тип",
   "transactionsTableCategory": "Категория",
   "transactionsTableComment": "Комментарий",
-  "transactionsTableAmount": "Комментарий",
-  "transactionsTableBalance": "Комментарий",
+  "transactionsTableAmount": "Сумма",
+  "transactionsTableBalance": "Баланс",
   "transactionsTableTitle": "Привет",
   "transactionsTableFirstParagraph": "Приложение Wallet поможет контролировать свои денежные операции удобно и просто.",
   "transactionsTableSecondParagraph": "у тебя пока еще нет совершенных транзакций. Для добавления новой транзакции нажми на плюс в правом нижнем углу.",
@@ -51,5 +51,7 @@
   "progressSwitchWeak": "Слабый",
   "progressSwitchNormal": "Нормальный",
   "progressSwitchSecure": "Надежный",
-  "progressSwitchSecure100": "Защита 100%"
+  "progressSwitchSecure100": "Защита 100%",
+  "statsMonthPlaceholder": "Месяц",
+  "statsYearPlaceholder": "Год"
 }

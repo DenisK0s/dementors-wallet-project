@@ -1,19 +1,21 @@
-import Transaction from 'components/transaction';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import authSelectors from '../../redux/auth/auth-selectors';
-import transactionsOperations from '../../redux/transactions/transaction-operations';
+import Transaction from "components/transaction";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import authSelectors from "../../redux/auth/auth-selectors";
+import { setPage } from "../../redux/transactions/transaction-actions";
+import transactionsOperations from "../../redux/transactions/transaction-operations";
 import {
-  getTransactions,
   getCurrentPage,
-} from '../../redux/transactions/transaction-selectors';
-import s from './TransactionsTable.module.css';
-import { useTranslation } from 'react-i18next';
-import { setPage } from '../../redux/transactions/transaction-actions';
+  getPagesQuantity,
+  getTransactions,
+} from "../../redux/transactions/transaction-selectors";
+import s from "./TransactionsTable.module.css";
 
-export default function TransactionsTable({ page }) {
+export default function TransactionsTable() {
   const userName = useSelector(authSelectors.getUsername);
   const transactions = useSelector(getTransactions);
+  const page = useSelector(getPagesQuantity) || 1;
   const { t } = useTranslation();
   const currentPage = useSelector(getCurrentPage);
 
@@ -31,18 +33,18 @@ export default function TransactionsTable({ page }) {
       <table className={s.table}>
         <thead className={s.table_header}>
           <tr key="asd" className={s.table_header_row}>
-            <th className={s.ths}>{t('transactionsTableDate')}</th>
-            <th className={s.ths}>{t('transactionsTableType')}</th>
-            <th className={s.ths}>{t('transactionsTableCategory')}</th>
-            <th className={s.ths}>{t('transactionsTableComment')}</th>
-            <th className={s.ths}>{t('transactionsTableAmount')}</th>
-            <th className={s.ths}>{t('transactionsTableBalance')}</th>
+            <th className={s.ths}>{t("transactionsTableDate")}</th>
+            <th className={s.ths}>{t("transactionsTableType")}</th>
+            <th className={s.ths}>{t("transactionsTableCategory")}</th>
+            <th className={s.ths}>{t("transactionsTableComment")}</th>
+            <th className={s.ths}>{t("transactionsTableAmount")}</th>
+            <th className={s.ths}>{t("transactionsTableBalance")}</th>
           </tr>
         </thead>
         <tbody className={s.table_body}>
           {transactions.map(
             ({ _id, date, type, category, comment, amount, balance }) => {
-              const isPositive = type === '+';
+              const isPositive = type === "+";
               return (
                 <tr
                   key={_id}
@@ -61,7 +63,7 @@ export default function TransactionsTable({ page }) {
                   />
                 </tr>
               );
-            },
+            }
           )}
         </tbody>
       </table>
@@ -84,10 +86,10 @@ export default function TransactionsTable({ page }) {
     </>
   ) : (
     <div className={s.greetings}>
-      <h2>{`${t('transactionsTableTitle')}, ${userName}!`}</h2>
-      <p>{t('transactionsTableFirstParagraph')}</p>
-      <p>{`${userName}, ${t('transactionsTableSecondParagraph')}`}</p>
-      <p>{t('transactionsTableThirdParagraph')}</p>
+      <h2>{`${t("transactionsTableTitle")}, ${userName}!`}</h2>
+      <p>{t("transactionsTableFirstParagraph")}</p>
+      <p>{`${userName}, ${t("transactionsTableSecondParagraph")}`}</p>
+      <p>{t("transactionsTableThirdParagraph")}</p>
     </div>
   );
 }
