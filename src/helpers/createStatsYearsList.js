@@ -7,8 +7,8 @@ export const createStatsYearsList = ({ firstTransactionYear, currentYear }) => {
   if (startYear === endYear) {
     return [
       {
-        label: endYear,
-        value: endYear,
+        label: endYear + "",
+        value: endYear + "",
       },
     ];
   }
@@ -16,15 +16,15 @@ export const createStatsYearsList = ({ firstTransactionYear, currentYear }) => {
   for (let i = 0; i <= yearsQuantity; i++) {
     if (i === 0) {
       result.push({
-        label: startYear,
-        value: startYear,
+        label: startYear + "",
+        value: startYear + "",
       });
       continue;
     }
 
     result.push({
-      label: startYear + i,
-      value: startYear + i,
+      label: startYear + i + "",
+      value: startYear + i + "",
     });
   }
   return result;

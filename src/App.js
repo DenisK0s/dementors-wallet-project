@@ -1,20 +1,20 @@
-import { useEffect, lazy, Suspense } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import DashboardComponents from "components/dashboardComponents";
+import Header from "components/header";
+import Currency from "components/money";
+import Statistics from "components/statistics";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import authOperations from "./redux/auth/auth-operations";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import authSelectors from "redux/auth/auth-selectors";
 import globalSelectors from "redux/global/global-selectors";
+import "../src/assets/css/pageAnimation.css";
+import Loader from "./components/loader/Loader";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import TransactionsTable from "./components/transactionsTable";
-import Loader from "./components/loader/Loader";
-import Statistics from "components/statistics/statistics";
-import Currency from "components/money";
-import "../src/assets/css/pageAnimation.css";
-import Header from "components/header";
-import DashboardComponents from "components/dashboardComponents";
+import authOperations from "./redux/auth/auth-operations";
 
 const NotFoundPage = lazy(() => import("./pages/notFoundPage"));
 const RegisterView = lazy(() => import("./pages/registrationPage"));
@@ -28,11 +28,12 @@ export default function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getFetchingCurrent);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const isLoadingSpinner = useSelector(globalSelectors.isLoadingSpinner);
+
   useEffect(() => {
     if (location.pathname === "/wallet") {
       navigate("/wallet/transactions");
     }
-  }, [location]);
+  }, [location, navigate]);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);

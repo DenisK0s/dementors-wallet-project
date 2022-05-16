@@ -1,19 +1,24 @@
 import Transaction from "components/transaction";
+import Loader from "../../components/loader";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import authSelectors from "../../redux/auth/auth-selectors";
+import globalSelectors from "../../redux/global/global-selectors";
 import { setPage } from "../../redux/transactions/transaction-actions";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import {
   getCurrentPage,
   getPagesQuantity,
   getTransactions,
+  getTransactionsExistingStatus,
 } from "../../redux/transactions/transaction-selectors";
 import s from "./TransactionsTable.module.css";
 
 export default function TransactionsTable() {
   const userName = useSelector(authSelectors.getUsername);
+  const isTransactionsLoaded = useSelector(globalSelectors.isLoadingSpinner);
+  const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const transactions = useSelector(getTransactions);
   const page = useSelector(getPagesQuantity) || 1;
   const { t } = useTranslation();
@@ -28,8 +33,9 @@ export default function TransactionsTable() {
   const setNextPage = () => dispatch(setPage(currentPage + 1));
   const setPreviousPage = () => dispatch(setPage(currentPage - 1));
 
-  return transactions.length ? (
+  return areTransactionsExist ? (
     <>
+      {isTransactionsLoaded && <Loader size={200} />}
       <table className={s.table}>
         <thead className={s.table_header}>
           <tr key="asd" className={s.table_header_row}>
@@ -53,7 +59,6 @@ export default function TransactionsTable() {
                   }`}
                 >
                   <Transaction
-                    //   key={id}
                     date={date}
                     type={type}
                     category={category}

@@ -7,7 +7,6 @@ const fetchTransactions = createAsyncThunk(
   async (page, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/transactions?page=${page}`);
-
       return data;
     } catch (error) {
       return rejectWithValue(error);

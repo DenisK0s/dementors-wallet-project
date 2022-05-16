@@ -57,7 +57,7 @@ export default function StatisticsSelect({
     }),
     singleValue: () => ({
       position: "absolute",
-      paddingLeft: "10px",
+      paddingLeft: "20px",
       fontSize: "18px",
     }),
     option: (provided) => ({
@@ -71,14 +71,18 @@ export default function StatisticsSelect({
       "&:hover": {
         color: "#ff6596",
         backgroundColor: "#fff",
+        borderRadius: "30px",
+        boxShadow: "0 5px 5px -5px rgba(0, 0, 0, 0.3)",
       },
       "&:active": {
         color: "#ff6596",
         backgroundColor: "#fff",
+        borderRadius: "30px",
       },
       "&:focus": {
         color: "#ff6596",
         backgroundColor: "#fff",
+        borderRadius: "30px",
       },
     }),
   };

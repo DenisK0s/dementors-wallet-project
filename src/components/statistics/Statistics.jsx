@@ -1,5 +1,5 @@
 import s from "components/statistics/statistics.module.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import statisticsOperations from "redux/statistics/statistics-operations";
@@ -7,38 +7,58 @@ import statisticsSelectors from "redux/statistics/statistics-selectors";
 import monthInRussian from "../../data/monthInRussian.json";
 import monthsInEnglish from "../../data/monthsInEnglish.json";
 import helpers from "../../helpers";
-import Donut from "./doughnut";
+import Donut from "./Doughnut";
 import StatisticsSelect from "./StatisticsSelect";
 
 const { currentMonth, currentYear } = helpers.getCurrentMonthYear();
 
-const yearsList = helpers.createStatsYearsList({
-  currentYear,
-});
-console.log(yearsList);
-const sortedMonthInRuss = monthInRussian.filter(
-  (_, idx) => idx + 1 <= currentMonth
-);
-
-const sortedMonthInEng = monthsInEnglish.filter(
-  (_, idx) => idx + 1 <= currentMonth
-);
+const filterOptions = (opts) => {
+  return opts.filter((_, idx) => idx + 1 <= currentMonth);
+};
 
 export default function Statistics() {
+  const correctedCurrentMonth = currentMonth.toString().padStart(2, "0");
+  const [selectedMonth, setSelectedMonth] = useState(correctedCurrentMonth);
+  const [selectedYear, setSelectedYear] = useState(currentYear);
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation();
   const statistics = useSelector(statisticsSelectors.statisticMinus);
   const balance = useSelector(statisticsSelectors.statisticTotal);
-  const { t, i18n } = useTranslation();
+  const firstTransactionYear = useSelector(
+    statisticsSelectors.firstTransactionYear
+  );
+
+  const filtredMonthInRuss = filterOptions(monthInRussian);
+  const filtredMonthInEng = filterOptions(monthsInEnglish);
+  const yearsList = helpers.createStatsYearsList({
+    firstTransactionYear,
+    currentYear,
+  });
+
+  const isSelectedYearEqualCurrentYear = selectedYear === currentYear;
 
   let months;
 
-  // if (condition) {
-  //   months = i18n.resolvedLanguage === "en" ? monthsInEnglish : monthInRussian;
-  // }
+  if (isSelectedYearEqualCurrentYear) {
+    months =
+      i18n.resolvedLanguage === "en" ? filtredMonthInEng : filtredMonthInRuss;
+  } else {
+    months = i18n.resolvedLanguage === "en" ? monthsInEnglish : monthInRussian;
+  }
+
+  const selectMonthHandler = (e) => {
+    setSelectedMonth(e.value);
+  };
+  const selectYearHandler = (e) => {
+    setSelectedYear(e.value);
+  };
 
   useEffect(() => {
-    dispatch(statisticsOperations.getStatistics());
-  }, [dispatch]);
+    dispatch(
+      statisticsOperations.getStatistics({ selectedMonth, selectedYear })
+    );
+  }, [dispatch, selectedMonth, selectedYear]);
+
   return (
     <div className={s.box_statistics}>
       <div className={s.box_circle}>
@@ -52,9 +72,12 @@ export default function Statistics() {
           <StatisticsSelect
             options={months}
             statsSelectPlaceholder={t("statsMonthPlaceholder")}
+            onChange={selectMonthHandler}
           />
           <StatisticsSelect
+            options={yearsList}
             statsSelectPlaceholder={t("statsYearPlaceholder")}
+            onChange={selectYearHandler}
           />
         </div>
 
