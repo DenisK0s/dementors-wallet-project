@@ -4,11 +4,9 @@ import { toast } from "react-toastify";
 
 const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
-  async (page = 1, { rejectWithValue }) => {
+  async (page, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/transactions?page=${page}`);
-      console.log(data)
-
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -43,12 +41,10 @@ const addTransaction = createAsyncThunk(
 
         const { data } = await axios.post("/transactions", newTransaction);
 
-
         return data;
       }
 
       const response = await axios.post("/transactions", transaction);
-
       return response.data;
     } catch (error) {
       toast.error(

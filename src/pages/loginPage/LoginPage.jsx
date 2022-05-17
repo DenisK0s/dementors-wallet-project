@@ -1,11 +1,13 @@
-import LoginForm from '../../components/loginForm';
-import BackgroundContainer from 'components/backgroundContainer';
-import React, { useEffect, useState } from 'react';
-import s from '../registrationPage/RegistrationPage.module.css';
-import animationStyles from '../../assets/css/appearAnimation.module.css';
-import { CSSTransition } from 'react-transition-group';
+import BackgroundContainer from "components/backgroundContainer";
+import React, { useEffect, useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import animationStyles from "../../assets/css/appearAnimation.module.css";
+import LoginForm from "../../components/loginForm";
+import s from "../registrationPage/RegistrationPage.module.css";
 
 const LoginPage = () => {
+  const nodeRef1 = React.useRef(null);
+  const nodeRef2 = React.useRef(null);
   const [animation, setAnimation] = useState(false);
   useEffect(() => {
     return setAnimation(true);
@@ -19,8 +21,11 @@ const LoginPage = () => {
             timeout={1200}
             classNames={animationStyles}
             unmountOnExit
+            nodeRef={nodeRef1}
           >
-            <p className={s.title}>Finance App</p>
+            <p className={s.title} ref={nodeRef1}>
+              Finance App
+            </p>
           </CSSTransition>
         </div>
         <CSSTransition
@@ -28,8 +33,9 @@ const LoginPage = () => {
           timeout={1200}
           classNames={animationStyles}
           unmountOnExit
+          nodeRef={nodeRef2}
         >
-          <LoginForm />
+          <LoginForm nodeRef={nodeRef2} />
         </CSSTransition>
         <div className={s.ellipseBlur}></div>
       </div>

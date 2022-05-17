@@ -1,10 +1,10 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
-import { combineReducers } from 'redux';
-import categoriesOperations from '../categories/categories-operations';
-import transactionsOperations from '../transactions/transaction-operations';
-import authOperations from '../auth/auth-operations';
-import modalActions from './global-actions';
+import { createReducer } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
+import { combineReducers } from "redux";
+import categoriesOperations from "../categories/categories-operations";
+import transactionsOperations from "../transactions/transaction-operations";
+import authOperations from "../auth/auth-operations";
+import modalActions from "./global-actions";
 
 const {
   changeLanguage,
@@ -50,6 +50,9 @@ const isLoading = createReducer(false, {
   [authOperations.fetchCurrentUser.pending]: () => true,
   [authOperations.fetchCurrentUser.fulfilled]: () => false,
   [authOperations.fetchCurrentUser.rejected]: () => false,
+  [transactionsOperations.fetchTransactions.pending]: () => true,
+  [transactionsOperations.fetchTransactions.fulfilled]: () => false,
+  [transactionsOperations.fetchTransactions.rejected]: () => false,
   [authOperations.register.pending]: () => true,
   [authOperations.register.fulfilled]: () => false,
   [authOperations.register.rejected]: () => false,

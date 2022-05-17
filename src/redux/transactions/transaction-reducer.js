@@ -7,6 +7,7 @@ const initialState = {
   currentBalance: null,
   currentPage: 1,
   pages: null,
+  areTransactionsExist: null,
 };
 
 const transactions = createReducer(initialState, {
@@ -18,6 +19,9 @@ const transactions = createReducer(initialState, {
     { payload }
   ) => {
     state.items = payload.transactions;
+    if (payload.transactions.length > 0) {
+      state.areTransactionsExist = true;
+    }
     state.currentBalance = payload.currentBalance;
     state.pages = Math.ceil(payload.pages);
   },

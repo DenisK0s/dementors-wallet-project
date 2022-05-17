@@ -23,7 +23,7 @@
 
   "statisticsTitle": "Statistics",
   "statisticsCategory": "Category",
-  "statisticsAmounts": "Category",
+  "statisticsAmounts": "Amount",
   "statisticsOutcomes": "Outcomes",
   "statisticsIncomes": "Incomes",
 
@@ -51,5 +51,7 @@
   "progressSwitchWeak": "Weak",
   "progressSwitchNormal": "Normal",
   "progressSwitchSecure": "Secure",
-  "progressSwitchSecure100": "Really reliable"
+  "progressSwitchSecure100": "Really reliable",
+  "statsMonthPlaceholder": "Month",
+  "statsYearPlaceholder": "Year"
 }

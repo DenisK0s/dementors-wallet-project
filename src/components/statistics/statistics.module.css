@@ -9,11 +9,11 @@
 
   .box_circle {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 29px;
     padding-top: 20px;
   }
   .title_statistics {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     padding-right: 32px;
-    padding-top: 53px;
+    padding-top: 70px;
   }
   .months {
     width: 160px;
@@ -73,7 +73,7 @@
     border-radius: 30px;
   }
   .category {
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -81,7 +81,7 @@
     color: #000000;
   }
   .summa {
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -110,7 +110,7 @@
   .info_statistics {
     margin-right: auto;
     margin-left: 16px;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -175,7 +175,7 @@
   }
   .info_statistics_expenses {
     margin-right: auto;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -184,7 +184,7 @@
   }
   .info_statistics_income {
     margin-right: auto;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -207,7 +207,7 @@
   }
 
   .title_statistics {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
@@ -273,7 +273,7 @@
   }
 
   .category {
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -282,7 +282,7 @@
   }
 
   .summa {
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -316,7 +316,7 @@
   .info_statistics {
     margin-right: auto;
     margin-left: 16px;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -398,7 +398,7 @@
 
   .info_statistics_expenses {
     margin-right: auto;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -408,7 +408,7 @@
 
   .info_statistics_income {
     margin-right: auto;
-    font-family: 'Circe';
+    font-family: "Circe";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -439,4 +439,3 @@
   line-height: 1.5;
   color: #000000;
 }
-
