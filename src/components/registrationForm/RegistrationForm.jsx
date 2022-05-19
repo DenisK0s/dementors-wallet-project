@@ -15,29 +15,29 @@ import { ReactComponent as UserIcon } from '../../assets/images/icons/user.svg';
 import { ReactComponent as EmailIcon } from '../../assets/images/icons/email.svg';
 import { ReactComponent as LockIcon } from '../../assets/images/icons/lock.svg';
 
-const RegistrationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Некорректный Email')
-    .min(6, 'минимум 6 символов!')
-    .required('Обязательное поле'),
-  password: Yup.string()
-    .typeError('Должно быть строкой')
-    .min(6, 'минимум 6 символов!')
-    .max(12, 'Не больше 12 символов!')
-    .required('Обязательное поле'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Пароли не совпадают')
-    .required('Обязательное поле'),
-  name: Yup.string()
-    .typeError()
-    .min(1, 'минимум 1 символа!')
-    .max(12, 'Не больше 12 символов!')
-    .required('Обязательное поле'),
-});
 export default function RegisterForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const RegistrationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email(t('registerFormEmailErrorValidation'))
+      .min(6, t('registerFormEmailIsTooShort'))
+      .required(t('registerFormIsRequired')),
+    password: Yup.string()
+      .typeError(t('registerFormPasswordErrorValidation'))
+      .min(6, t('registerFormPasswordIsTooShort'))
+      .max(12, t('registerFormPasswordIsTooLong'))
+      .required(t('registerFormIsRequired')),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password')], t('registerFormPasswordDontMatch'))
+      .required(t('registerFormIsRequired')),
+    name: Yup.string()
+      .typeError()
+      .min(1, t('registerFormNameIsTooShort'))
+      .max(12, t('registerFormNameIsTooLong'))
+      .required(t('registerFormIsRequired')),
+  });
   const handleSubmit = ({ name, email, password }) => {
     dispatch(authOperations.register({ name, email, password }));
   };

@@ -22,7 +22,7 @@
   color: var(--secondary-text-color);
   border: transparent;
   border-radius: 20px;
-  background-image: url("../../assets//images//icons/categories.svg");
+  background-image: url('../../assets//images//icons/categories.svg');
   background-size: 55%;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,6 +43,11 @@
 .loadLessButton:disabled {
   background-color: var(--placeholder-text-color);
   box-shadow: none;
+}
+.table_header_row .ths:first-child {
+  text-align: left;
+
+  padding-left: 18px;
 }
 @media only screen and (max-width: 767.9px) {
   .table {

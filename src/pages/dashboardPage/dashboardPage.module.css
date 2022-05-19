@@ -5,6 +5,7 @@
   bottom: 30px;
   right: 20px;
   margin-left: auto;
+  z-index: 3;
 }
 .wrapper {
   position: relative;
