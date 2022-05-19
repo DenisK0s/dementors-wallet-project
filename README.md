@@ -11,7 +11,7 @@
  <li>Run locally by running npm start</li>
 </ol>
 
-<p>Or just follow the link to try a live demo: <a href="https://nostalgic-austin-c31fb8.netlify.app/">Wallet demo</a></p>
+<p>Or just follow the link to try a live demo: <a href="https://kdv-wallet-project.netlify.app/">Wallet demo</a></p>
 <h3>Lets see what exactly you can do in our app:</h3>
 <ol>
  <li>Create an account and log in.</li>
