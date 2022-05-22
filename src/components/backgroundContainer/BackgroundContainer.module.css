@@ -1,0 +1,43 @@
+.container {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  background-color: var(--primary-bg-color);
+  width: 100%;
+  padding: 15px 20px 20px 20px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: block;
+    padding-top: 20px 40px 0 40px;
+    background-color: var(--first-bg-color);
+    background-image: url("../../assets/images/Ellipse1_tabl.png"),
+      url("../../assets/images/Ellipse2_tabl.png");
+
+    background-repeat: no-repeat;
+    background-position: bottom 0 left 0, top 0 right 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    align-items: center;
+    padding-top: 20px 85px 0 85px;
+    background-color: var(--first-bg-color);
+    background-image: url("../../assets/images/Ellipse1_desk.png"),
+      url("../../assets/images/Ellipse2_desk.png");
+    background-repeat: no-repeat;
+    background-position: bottom 0 left 0, top 0 right 0;
+  }
+}

@@ -1,0 +1,24 @@
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  /* transform: translateX(-100%) scale(0); */
+  opacity: 0;
+}
+
+.page-enter-active {
+  /* transform: translateX(0) scale(1); */
+  transition: opacity 600ms ease-out;
+  opacity: 1;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+}

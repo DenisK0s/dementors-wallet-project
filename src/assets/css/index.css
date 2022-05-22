@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: "Circe", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: rgba(228, 218, 218, 0.4);
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: inline-block;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+select {
+  border: none;
+  border-bottom: 1px solid var(--placeholder-icon-color);
+  outline: transparent;
+}
+input {
+  font-family: "Circe";
+  font-style: normal;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+p {
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(../../assets/images/Ellipse1_tabl.png),
+      url(../../assets/images/Ellipse2_tabl.png);
+    background-position: left bottom, right top;
+    backdrop-filter: blur(30px);
+    background-repeat: no-repeat;
+  }
+}

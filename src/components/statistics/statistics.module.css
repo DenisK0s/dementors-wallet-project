@@ -1,0 +1,441 @@
+@media screen and (min-width: 768px) {
+  .box_statistics {
+    display: flex;
+    width: 715px;
+    backdrop-filter: blur(50px);
+    margin: auto;
+    position: absolute;
+  }
+
+  .box_circle {
+    margin-left: auto;
+    margin-right: 29px;
+    padding-top: 20px;
+  }
+  .title_statistics {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #50edbb;
+  }
+
+  .container_statistics {
+    width: 395px;
+    margin-left: auto;
+  }
+  .box_data {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 32px;
+    padding-top: 70px;
+  }
+  .months {
+    width: 160px;
+    height: 50px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 14px;
+  }
+  .years {
+    width: 160px;
+    height: 50px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 14px;
+  }
+  .box_category_summa {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    margin-right: 32px;
+    margin-top: 20px;
+    height: 58px;
+    background: #ffffff;
+    border-radius: 30px;
+  }
+  .category {
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+  }
+  .summa {
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: right;
+    color: #000000;
+  }
+  .rectangle {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #fed057;
+    border-radius: 2px;
+  }
+  .list_statistics {
+    marker: none;
+    padding-right: 52px;
+    padding-left: 17px;
+    margin-top: 16px;
+  }
+  .list_statistics li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .info_statistics {
+    margin-right: auto;
+    margin-left: 16px;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+  .produkt {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #ffd8d0;
+  }
+  .car {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #fd9498;
+  }
+  .taking {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #c5baff;
+  }
+  .child {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #6e78e8;
+  }
+  .home {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #4a56e2;
+  }
+  .education {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #81e1ff;
+  }
+  .leisure {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #24cca7;
+  }
+  .otherExpenses {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #00ad84;
+  }
+  .info_statistics_expenses {
+    margin-right: auto;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+  }
+  .info_statistics_income {
+    margin-right: auto;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.1;
+    color: #000000;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .box_statistics {
+    width: 320px;
+    backdrop-filter: blur(50px);
+    margin: auto;
+  }
+
+  .box_circle {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+
+  .title_statistics {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .circle {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #50edbb;
+  }
+
+  .container_statistics {
+    width: 320px;
+    margin-left: auto;
+  }
+
+  .box_data {
+    padding-top: 32px;
+  }
+
+  .months {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 14px;
+  }
+
+  .years {
+    margin: auto;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 14px;
+  }
+
+  .box_category_summa {
+    width: 280px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    padding-top: 15px;
+    height: 58px;
+    background: #ffffff;
+    border-radius: 30px;
+  }
+
+  .category {
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .summa {
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: right;
+    color: #000000;
+  }
+
+  .rectangle {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #fed057;
+    border-radius: 2px;
+  }
+
+  .list_statistics {
+    marker: none;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-bottom: 28px;
+    margin-top: 16px;
+  }
+
+  .list_statistics li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  .info_statistics {
+    margin-right: auto;
+    margin-left: 16px;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .produkt {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #ffd8d0;
+  }
+
+  .car {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #fd9498;
+  }
+
+  .taking {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #c5baff;
+  }
+
+  .child {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #6e78e8;
+  }
+
+  .home {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #4a56e2;
+  }
+
+  .education {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #81e1ff;
+  }
+
+  .leisure {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #24cca7;
+  }
+
+  .otherExpenses {
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background: #00ad84;
+  }
+
+  .info_statistics_expenses {
+    margin-right: auto;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .info_statistics_income {
+    margin-right: auto;
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.1;
+    color: #000000;
+  }
+}
+#container div {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.section {
+  max-width: 1080px !important;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #000000;
+}

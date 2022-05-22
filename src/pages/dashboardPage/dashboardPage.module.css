@@ -1,0 +1,101 @@
+.addTransactionBtn {
+  position: fixed;
+  width: 44px;
+  height: 44px;
+  bottom: 30px;
+  right: 20px;
+  margin-left: auto;
+  z-index: 100;
+}
+.wrapper {
+  position: relative;
+  padding: 40px 0 0 0;
+}
+.main {
+  padding-top: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.currency {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767.9px) {
+  .box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 45px 0 45px 0;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .nav {
+    width: fit-content;
+    top: 128px;
+  }
+  .currency {
+    width: 50%;
+    right: 0;
+    position: absolute;
+    top: 40px;
+  }
+  .box {
+    height: 415px;
+    overflow: hidden;
+  }
+  .addTransactionBtn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    position: relative;
+    padding: 40px 10px 0 10px;
+  }
+
+  .main {
+    margin-left: 420px;
+    top: -200px;
+    margin-top: -450px;
+    width: 820px;
+    padding: 45px 0 150px 20px;
+    border-left: 1px solid var(--first-bg-color);
+    box-shadow: 5px 2px 2px -5px rgba(255, 255, 255, 0.9) inset;
+  }
+
+  .aside {
+    padding-right: 50px;
+    width: 36%;
+    padding-bottom: 40px;
+  }
+
+  .box {
+    width: 100%;
+    height: 415px;
+    overflow: hidden;
+    padding-left: 20px;
+  }
+  .currency {
+    position: relative;
+  }
+  .nav {
+    width: fit-content;
+  }
+  .addTransactionBtn {
+    position: sticky;   
+    bottom: 40px;
+  }
+}

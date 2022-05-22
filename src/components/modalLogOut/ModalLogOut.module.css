@@ -1,0 +1,77 @@
+.logOutBtn {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnWrap {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.cancelBtn,
+.acceptBtn {
+  position: relative;
+  font-family: var(--primary-font);
+  border-radius: 20px;
+  padding: 13px 20px;
+  box-sizing: border-box;
+}
+.cancelBtn {
+  background: var(--green-color);
+  border: none;
+  color: var(--secondary-text-color);
+}
+.acceptBtn {
+  z-index: 1;
+  overflow: hidden;
+  background: var(--secondary-text-color);
+  border: 1px solid var(--blue-color);
+  color: var(--blue-color);
+}
+.cancelBtn:hover,
+.cancelBtn:focus {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.acceptBtn:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  direction: rtl;
+  z-index: -1;
+  background: var(--blue-color);
+  transition: all 1s ease;
+}
+.acceptBtn:hover:after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+.acceptBtn:hover,
+.acceptBtn:focus {
+  color: var(--primary-bg-color);
+  border: 0.5px solid var(--blue-color);
+}
+.cancelBtn:active,
+.acceptBtn:active {
+  top: 2px;
+}
+
+@media screen and (min-width: 350px) {
+  .btnWrap {
+    justify-content: space-around;
+  }
+}
+.btn {
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .logOutBtn {
+    margin-left: 10px;
+  }
+}
