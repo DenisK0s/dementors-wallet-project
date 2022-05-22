@@ -1,9 +1,9 @@
 import s from './Container.module.css';
 
-const Container = ({ children, additionalClasses = [] }) => {
+const Container = ({ children, additionalClasses = [], nodeRef }) => {
   const classes = [s.container, ...additionalClasses];
 
-  return <div className={classes.join(' ')}>{children}</div>;
+  return <div ref={nodeRef} className={classes.join(' ')}>{children}</div>;
 };
 
 export default Container;
