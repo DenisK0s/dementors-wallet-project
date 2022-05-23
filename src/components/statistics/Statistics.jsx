@@ -9,6 +9,9 @@ import monthsInEnglish from "../../data/monthsInEnglish.json";
 import helpers from "../../helpers";
 import Donut from "./Doughnut";
 import StatisticsSelect from "./StatisticsSelect";
+import { ReactComponent as NoDataIcon } from "../../assets/images/icons/no-data-amico.svg";
+import { CSSTransition } from "react-transition-group";
+import animationStyles from "../../assets/css/appearAnimation2.module.css";
 
 const { currentMonth, currentYear } = helpers.getCurrentMonthYear();
 
@@ -24,9 +27,14 @@ export default function Statistics() {
   const { t, i18n } = useTranslation();
   const statistics = useSelector(statisticsSelectors.statisticMinus);
   const balance = useSelector(statisticsSelectors.statisticTotal);
+  const isNoData = useSelector(statisticsSelectors.isNoData);
+
   const firstTransactionYear = useSelector(
     statisticsSelectors.firstTransactionYear
   );
+
+  // console.log(selectedMonth, "selectedMonth");
+  // console.log(correctedCurrentMonth, "correctedCurrentMonth");
 
   const filtredMonthInRuss = filterOptions(monthInRussian);
   const filtredMonthInEng = filterOptions(monthsInEnglish);
@@ -64,7 +72,13 @@ export default function Statistics() {
       <div className={s.box_circle}>
         <p className={s.title_statistics}>{t("statisticsTitle")}</p>
         <div className={s.section} id={s.container}>
-          <Donut />
+        {isNoData ? <CSSTransition
+          in={isNoData}
+          timeout={1200}
+          classNames={animationStyles}
+          unmountOnExit
+        ><NoDataIcon className={s.noData}/>
+        </CSSTransition> : <Donut />}
         </div>
       </div>
       <div className={s.container_statistics}>

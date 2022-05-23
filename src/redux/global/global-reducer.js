@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { combineReducers } from "redux";
 import categoriesOperations from "../categories/categories-operations";
 import transactionsOperations from "../transactions/transaction-operations";
+import statisticsOperations from "../statistics/statistics-operations";
 import authOperations from "../auth/auth-operations";
 import modalActions from "./global-actions";
 
@@ -70,6 +71,7 @@ const error = createReducer(null, {
   [transactionsOperations.fetchTransactions.rejected]: (_, { payload }) =>
     toast.error(payload),
   [transactionsOperations.addTransaction.rejected]: (_, { payload }) => payload,
+  [statisticsOperations.getStatistics.rejected]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

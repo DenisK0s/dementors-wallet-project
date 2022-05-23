@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Select, { components } from "react-select";
+import Select, { components  } from "react-select";
 import IndicatorArrow from "../../assets/images/icons/categories.svg";
 
 export default function StatisticsSelect({

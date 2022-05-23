@@ -15,14 +15,12 @@ import './assets/css/variables.css';
 const root = document.querySelector('#root');
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   root,
 );

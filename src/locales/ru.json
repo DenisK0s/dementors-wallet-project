@@ -53,5 +53,7 @@
   "progressSwitchSecure": "Надежный",
   "progressSwitchSecure100": "Защита 100%",
   "statsMonthPlaceholder": "Месяц",
-  "statsYearPlaceholder": "Год"
+  "statsYearPlaceholder": "Год",
+
+  "infoDoesNotExist": "Данные отсутствуют !"
 }

@@ -23,7 +23,6 @@ const LoginView = lazy(() => import("./pages/loginPage"));
 const DashboardPage = lazy(() => import("./pages/dashboardPage"));
 
 export default function App() {
-  const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -63,14 +62,13 @@ export default function App() {
                 timeout={600}
                 classNames="page"
                 unmountOnExit
-                nodeRef={nodeRef}
               >
                 <Routes>
                   <Route
                     path="/"
                     element={
                       <PublicRoute restricted redirectTo="/wallet/transaction">
-                        <LoginView nodeRef={nodeRef} />
+                        <LoginView />
                       </PublicRoute>
                     }
                   />

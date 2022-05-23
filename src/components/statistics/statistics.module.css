@@ -191,6 +191,11 @@
     line-height: 1.1;
     color: #000000;
   }
+  .noData {
+    width: 320px;
+    height: 320px;
+  }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -415,7 +420,12 @@
     line-height: 1.1;
     color: #000000;
   }
+  .noData {
+    width: 280px;
+    height: 280px;
+  }
 }
+
 #container div {
   max-width: 1080px;
   margin: 0 auto;
