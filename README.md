@@ -15,9 +15,12 @@
 <h3>Lets see what exactly you can do in our app:</h3>
 <ol>
  <li>Create an account and log in.</li>
+ <img src="https://user-images.githubusercontent.com/80903117/170729160-68f6caf5-fd9e-45dd-80d7-1846fecf29e9.gif" alt="Login page" width="200"/>
+
  <li>There is a checkbox for setting a language at the top of the app. You can choose Russian or English.</li>
  <li>Start to add transaction. Push the button in the lower right corner and you will see a form for creating a new transaction. We would like to pay your attention on the one thing: you need to start from the <b>"Incomes"</b> transaction to make it possible to add your first transaction and calculate current balance. </li>
- <li>You can choose the caregory of your transaction or create a new one.</li>
+ <li>You can choose the caregory of your transaction or create a new one.</li>![ezgif com-gif-maker]()
+
  <li>There is a current exchange rate on the right part of the display.</li>
  <li>Also on the right you can see a link to statistics that shows the amount of income and expenses by categories, date.</li>
 </ol>
