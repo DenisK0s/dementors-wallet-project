@@ -1,0 +1,49 @@
+.container {
+  padding: 8px 40px 13px 40px;
+  width: 100%;
+  background-color: white;
+  border-radius: 30px;
+  height: auto;
+  max-height: 80px;
+  margin-bottom: 10px;
+}
+.text {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+  height: 12.8px;
+  color: #a6a6a6;
+}
+
+.balance {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: #000000;
+}
+
+.amount {
+  font-weight: 700;
+  padding-left: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 305px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 348px;
+    margin-bottom: 40px;
+  }
+}

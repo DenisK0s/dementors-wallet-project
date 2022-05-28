@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Circe Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Circe Bold'), local(' Circe-Bold'),
+    url('../fonts/Circe-Bold.woff') format('woff');
+  src: local('Circe Bold'), local(' Circe-Bold'),
+    url('../fonts/Circe-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Circe'), local('Circe'),
+    url('../fonts/Circe-Regular.woff') format('woff');
+  src: local('Circe'), local(' Circe'),
+    url('../fonts/Circe-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular');
+  src: url('../fonts/Poppins-Regular.woff') format('woff');
+  src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Poppins Bold'), local(' Poppins-Bold'),
+    url('../fonts/Poppins-Bold.woff') format('woff');
+  src: local('Poppins Bold'), local(' Poppins-Bold'),
+    url('../fonts/Poppins-Bold.woff2') format('woff2');
+}

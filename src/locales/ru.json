@@ -1,0 +1,59 @@
+{
+  "registerFormEmail": "E-mail",
+  "registerFormPassword": "Пароль",
+  "registerFormConfirmPassword": "Подтвердите пароль",
+  "registerFormName": "Ваше имя",
+  "registerFormLoginBtn": "Вход",
+  "registerFormSignupBtn": "Регистрация",
+
+  "headerExitBtn": "Выйти",
+
+  "modalLogOutQuestion": "Вы действительно хотите выйти?",
+  "modalLogOutCancelBtn": "Нет",
+  "modalLogOutAcceptBtn": "Да",
+
+  "navHomeLink": "Главная",
+  "navStatisticsLink": "Статистика",
+
+  "balanceTitle": "Ваш баланс",
+
+  "currency": "Валюта",
+  "currencyPurchase": "Покупка",
+  "currencySale": "Продажа",
+
+  "statisticsTitle": "Статистика",
+  "statisticsCategory": "Категория",
+  "statisticsAmounts": "Cумма",
+  "statisticsOutcomes": "Расходы",
+  "statisticsIncomes": "Доходы",
+
+  "modalAddTransactionTitle": "Добавить транзакцию",
+  "modalAddTransactionErrorMsg": "Операция добавления может занять немного больше времени из-за того, что это транзакция добавлена задним числом.",
+  "modalAddTransactionIncomesType": "Доходы",
+  "modalAddTransactionOutcomesType": "Расходы",
+  "modalAddTransactionNewCategory": "Название новой категории",
+  "modalAddTransactionComment": "Комментарий",
+  "modalAddTransactionCancelBtn": "Отмена",
+  "modalAddTransactionAcceptBtn": "Добавить",
+  "modalAddTransactionSelectPlaceholder": "Выберите категорию",
+
+  "transactionsTableDate": "Дата",
+  "transactionsTableType": "Тип",
+  "transactionsTableCategory": "Категория",
+  "transactionsTableComment": "Комментарий",
+  "transactionsTableAmount": "Сумма",
+  "transactionsTableBalance": "Баланс",
+  "transactionsTableTitle": "Привет",
+  "transactionsTableFirstParagraph": "Приложение Wallet поможет контролировать свои денежные операции удобно и просто.",
+  "transactionsTableSecondParagraph": "у тебя пока еще нет совершенных транзакций. Для добавления новой транзакции нажми на плюс в правом нижнем углу.",
+  "transactionsTableThirdParagraph": "И хотим обратить внимание на то, что первая транзакция должна быть с указанным типом 'Доход' для того, чтобы далее было возможно отображать актуальный баланс средств и отслеживать         денежные операции.",
+
+  "progressSwitchWeak": "Слабый",
+  "progressSwitchNormal": "Нормальный",
+  "progressSwitchSecure": "Надежный",
+  "progressSwitchSecure100": "Защита 100%",
+  "statsMonthPlaceholder": "Месяц",
+  "statsYearPlaceholder": "Год",
+
+  "infoDoesNotExist": "Данные отсутствуют !"
+}
