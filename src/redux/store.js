@@ -21,7 +21,7 @@ const transactionsPersistConfig = {
   key: "transactions",
   storage: storageSession,
   whitelist: ["areTransactionsExist"],
-};
+}; 
 
 export const store = configureStore({
   reducer: {

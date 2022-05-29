@@ -5,19 +5,16 @@ import transactionsOperations from "./transaction-operations";
 const initialState = {
   items: [],
   currentBalance: null,
-  currentPage: 1,
+  currentPage: null,
   pages: null,
-  areTransactionsExist: null,
+  areTransactionsExist: false,
 };
 
 const transactions = createReducer(initialState, {
   [setPage]: (state, { payload }) => {
     state.currentPage = payload;
   },
-  [transactionsOperations.fetchTransactions.fulfilled]: (
-    state,
-    { payload }
-  ) => {
+  [transactionsOperations.fetchTransactions.fulfilled]: (state, { payload }) => {
     state.items = payload.transactions;
     if (payload.transactions.length > 0) {
       state.areTransactionsExist = true;

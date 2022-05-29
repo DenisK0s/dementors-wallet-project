@@ -16,6 +16,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import TransactionsTable from "./components/transactionsTable";
 import authOperations from "./redux/auth/auth-operations";
+import categoriesOperations from "./redux/categories/categories-operations";
 
 const NotFoundPage = lazy(() => import("./pages/notFoundPage"));
 const RegisterView = lazy(() => import("./pages/registrationPage"));
@@ -37,6 +38,7 @@ export default function App() {
   }, [location, navigate]);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
+    dispatch(categoriesOperations.getCategories());
   }, [dispatch]);
   const routes = [
     { path: "transactions", Component: TransactionsTable },
@@ -57,12 +59,7 @@ export default function App() {
               </>
             )}
             <TransitionGroup>
-              <CSSTransition
-                key={location.key}
-                timeout={600}
-                classNames="page"
-                unmountOnExit
-              >
+              <CSSTransition key={location.key} timeout={600} classNames="page" unmountOnExit>
                 <Routes>
                   <Route
                     path="/"
@@ -95,8 +92,7 @@ export default function App() {
                       <PrivateRoute redirectTo="/login">
                         <DashboardPage />
                       </PrivateRoute>
-                    }
-                  >
+                    }>
                     {routes.map(({ path, Component }) => (
                       <Route
                         key={location.key}
@@ -105,8 +101,7 @@ export default function App() {
                           <PrivateRoute redirectTo="/login">
                             <Component />
                           </PrivateRoute>
-                        }
-                      ></Route>
+                        }></Route>
                     ))}
                   </Route>
                   <Route

@@ -1,4 +1,4 @@
-.addTransactionBtn {
+/* .addTransactionBtn {
   position: fixed;
   width: 44px;
   height: 44px;
@@ -10,18 +10,17 @@
 .wrapper {
   position: relative;
   padding: 40px 0 0 0;
-}
+} */
 .main {
   padding-top: 15px;
   position: relative;
   display: flex;
   justify-content: center;
 }
-
-.currency {
+/* .currency {
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 @media screen and (max-width: 767.9px) {
   .box {
@@ -39,7 +38,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .nav {
+  /* .nav {
     width: fit-content;
     top: 128px;
   }
@@ -48,23 +47,23 @@
     right: 0;
     position: absolute;
     top: 40px;
-  }
+  } */
   .box {
     height: 415px;
     overflow: hidden;
   }
-  .addTransactionBtn {
+  /* .addTransactionBtn {
     position: fixed;
     right: 40px;
     bottom: 40px;
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
-  .wrapper {
+  /* .wrapper {
     position: relative;
     padding: 40px 10px 0 10px;
-  }
+  } */
 
   .main {
     margin-left: 420px;
@@ -76,11 +75,11 @@
     box-shadow: 5px 2px 2px -5px rgba(255, 255, 255, 0.9) inset;
   }
 
-  .aside {
+  /* .aside {
     padding-right: 50px;
     width: 36%;
     padding-bottom: 40px;
-  }
+  } */
 
   .box {
     width: 100%;
@@ -88,14 +87,14 @@
     overflow: hidden;
     padding-left: 20px;
   }
-  .currency {
+  /* .currency {
     position: relative;
   }
   .nav {
     width: fit-content;
   }
   .addTransactionBtn {
-    position: sticky;   
+    position: sticky;
     bottom: 40px;
-  }
+  } */
 }

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
-  async (page, { rejectWithValue }) => {
+  async (page = 1, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/transactions?page=${page}`);
       return data;
@@ -47,9 +47,7 @@ const addTransaction = createAsyncThunk(
       const response = await axios.post("/transactions", transaction);
       return response.data;
     } catch (error) {
-      toast.error(
-        "Недостаточный баланс !!! Сначала внесите транзакцию в доходы"
-      );
+      toast.error("Недостаточный баланс !!! Сначала внесите транзакцию в доходы");
       return rejectWithValue(error);
     }
   }

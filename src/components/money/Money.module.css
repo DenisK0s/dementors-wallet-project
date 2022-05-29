@@ -19,18 +19,25 @@
 
 .tableRow {
   display: flex;
-  text-align: center;
   color: white;
   font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .tableCell {
+  display: flex;
+  width: calc(100% / 3);
   border: 0px;
   line-height: 1.2;
+}
+.tableCell:nth-child(2) {
+  justify-content: center;
+}
+.tableCell:last-child {
+  justify-content: flex-end;
 }
 
 .tr {
@@ -41,9 +48,7 @@
   height: 24px;
 }
 
-.elemCentr {
-  transform: translatex(-1rem);
-}
+
 
 .gap {
   display: grid;

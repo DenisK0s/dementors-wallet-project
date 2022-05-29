@@ -1,16 +1,15 @@
-import Container from 'components/сontainer/Container';
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import Container from "components/сontainer/Container";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-import s from './dashboardPage.module.css';
+import s from "./dashboardPage.module.css";
 
 const DashboardPage = () => {
+  // console.log("DashboardPage");
   return (
     <>
       <Container>
-        <main className={s.main}>
-          {<article className={s.box}>{<Outlet />}</article>}
-        </main>
+        <main className={s.main}>{<article className={s.box}>{<Outlet />}</article>}</main>
       </Container>
     </>
   );

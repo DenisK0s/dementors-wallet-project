@@ -4,7 +4,14 @@
 @media only screen and (min-width: 768px) {
   table .table_cell {
     border: none !important;
+    text-align: center;
     padding: 20px;
+  }
+  table .table_cell:first-child {
+    text-align: left;
+  }
+  table .table_cell:last-child {
+    text-align: right;
   }
 }
 @media only screen and (max-width: 767.9px) {
