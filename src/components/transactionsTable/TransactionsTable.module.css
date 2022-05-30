@@ -36,8 +36,7 @@
 .loadLessButton:active,
 .loadMoreButton:hover,
 .loadMoreButton:active {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 .loadMoreButton:disabled,
 .loadLessButton:disabled {
@@ -104,10 +103,10 @@
     text-align: left;
   }
   .ths:nth-child(3) {
-   width: 200px;
+    width: 200px;
   }
   .ths:nth-child(4) {
-   width: 200px;
+    width: 200px;
   }
   .ths:last-child {
     width: 100px;
@@ -128,7 +127,6 @@
     border-bottom: 1px solid #dcdcdf;
     box-shadow: 0 3px 2px -2px rgba(255, 255, 255, 0.6);
   }
-
 }
 @media only screen and (min-width: 1280px) {
   .arrowsBtnWrap {

@@ -21,21 +21,17 @@ const transactionsPersistConfig = {
   key: "transactions",
   storage: storageSession,
   whitelist: ["areTransactionsExist"],
-}; 
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoryReducer,
-    transactions: persistReducer(
-      transactionsPersistConfig,
-      transactionsReducer
-    ),
+    transactions: persistReducer(transactionsPersistConfig, transactionsReducer),
     global: persistReducer(globalPersistConfig, loadingReducer),
     statistics: statisticsReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
   devTools: process.env.NODE_ENV === "development",
 });
 
