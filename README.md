@@ -10,9 +10,9 @@
  <li>Install dependencies by running npm install.</li>
  <li>Run locally by running npm start</li>
 </ol>
-
-<p>Or just follow the link to try a live demo: <a href="https://nostalgic-austin-c31fb8.netlify.app/">Wallet demo</a></p>
+<p>Or just follow the link to try a live demo: <a href="https://kdv-wallet-project.netlify.app/">Wallet demo</a></p>
 <h3>Lets see what exactly you can do in our app:</h3>
+<img src="https://user-images.githubusercontent.com/80903117/170730083-a66cb74c-dfe4-4b3d-b924-299bff42b8c4.gif" alt="Login page" width="600"/>
 <ol>
  <li>Create an account and log in.</li>
  <li>There is a checkbox for setting a language at the top of the app. You can choose Russian or English.</li>
