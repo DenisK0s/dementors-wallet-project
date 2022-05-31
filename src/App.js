@@ -16,7 +16,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import TransactionsTable from "./components/transactionsTable";
 import authOperations from "./redux/auth/auth-operations";
-import categoriesOperations from "./redux/categories/categories-operations";
 
 const NotFoundPage = lazy(() => import("./pages/notFoundPage"));
 const RegisterView = lazy(() => import("./pages/registrationPage"));
@@ -38,7 +37,6 @@ export default function App() {
   }, [location, navigate]);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-    dispatch(categoriesOperations.getCategories());
   }, [dispatch]);
   const routes = [
     { path: "transactions", Component: TransactionsTable },

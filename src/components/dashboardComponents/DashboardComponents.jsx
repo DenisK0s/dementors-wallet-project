@@ -10,31 +10,31 @@ import s from "./DashbordComponents.module.css";
 import Modal from "../modal";
 import { ModalAddTransactionsBtn } from "../modalAddTransactions";
 import categoriesSelectors from "../../redux/categories/categories-selectors";
+import authSelectors from "../../redux/auth/auth-selectors";
 import globalSelectors from "../../redux/global/global-selectors";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import statisticsOperations from "../../redux/statistics/statistics-operations";
-// import helpers from "../../helpers";
-
-// const { currentMonth, currentYear } = helpers.getCurrentMonthYear();
+import categoriesOperations from "../../redux/categories/categories-operations";
 
 export default function DashboardComponents() {
   const [display, setDisplay] = useState();
   const lang = useSelector(globalSelectors.lang);
   const isModalOpen = useSelector(globalSelectors.isModalOpen);
   const test = useSelector(categoriesSelectors.getCategories);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const location = useLocation();
   const path = location.pathname;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log("DashboardComponents useEffect 1");
     setDisplay(path === "exchange-rate" ? true : false);
   }, [path]);
   useEffect(() => {
-    console.log("DashboardComponents useEffect 2 before dispatch");
+    if (isLoggedIn) {
+      dispatch(categoriesOperations.getCategories());
+    }
     dispatch(transactionsOperations.fetchTransactions());
     dispatch(statisticsOperations.getStatistics({}));
-    console.log("DashboardComponents useEffect 2 after dispatch");
   }, [dispatch]);
   return (
     <>
