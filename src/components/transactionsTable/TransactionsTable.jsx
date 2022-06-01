@@ -28,7 +28,6 @@ export default function TransactionsTable() {
   const dispatch = useDispatch();
   const userName = useSelector(authSelectors.getUsername);
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
-  console.log(areTransactionsExist);
   const transactions = useSelector(getTransactions);
   const page = useSelector(getPagesQuantity);
 
