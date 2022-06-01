@@ -35,7 +35,7 @@ export default function DashboardComponents() {
     }
     dispatch(transactionsOperations.fetchTransactions());
     dispatch(statisticsOperations.getStatistics({}));
-  }, [dispatch]);
+  }, []);
   return (
     <>
       <Container>
