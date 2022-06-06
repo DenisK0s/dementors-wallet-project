@@ -13,11 +13,6 @@ const authPersistConfig = {
   storage: storageSession,
   whitelist: ["token"],
 };
-const globalPersistConfig = {
-  key: "global",
-  storage: storageSession,
-  whitelist: ["isEnglishVersion"],
-};
 const transactionsPersistConfig = {
   key: "transactions",
   storage: storage,
@@ -29,7 +24,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoryReducer,
     transactions: persistReducer(transactionsPersistConfig, transactionsReducer),
-    global: persistReducer(globalPersistConfig, loadingReducer),
+    global: loadingReducer,
     statistics: statisticsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),

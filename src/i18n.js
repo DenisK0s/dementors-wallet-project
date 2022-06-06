@@ -1,8 +1,8 @@
-import { initReactI18next } from 'react-i18next';
-import transactionRu from './locales/ru.json';
-import transactionEn from './locales/en.json';
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from "react-i18next";
+import transactionRu from "./locales/ru.json";
+import transactionEn from "./locales/en.json";
+import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
 const resources = {
   en: {
@@ -18,14 +18,14 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    fallbackLng: 'ru',
+    fallbackLng: "ru",
     whitelist: resources,
     detection: {
-      order: ['localStorage', 'cookie', 'path', 'subdomain'],
-      caches: ['localStorage', 'cookie'],
-      lookupCookie: 'i18next',
-      lookupLocalStorage: 'i18nextLng',
-      lookupSessionStorage: 'i18nextLng',
+      order: ["localStorage"],
+      caches: ["localStorage"],
+      lookupCookie: "i18next",
+      lookupLocalStorage: "i18nextLng",
+      lookupSessionStorage: "i18nextLng",
     },
   });
 export default i18n;
