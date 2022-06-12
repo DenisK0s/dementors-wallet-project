@@ -15,7 +15,8 @@ import './ModalAddTransactions.module.css';
 import s from './ModalAddTransactions.module.css';
 import TransactionsCategoriesSelect from './TransactionsCategoriesSelect';
 import categoriesSelectors from '../../redux/categories/categories-selectors';
-import schema from './Schema';
+// import Schema from './Schema';
+import * as yup from 'yup';
 import categoriesOperations from '../../redux/categories/categories-operations';
 import { useTranslation } from 'react-i18next';
 
@@ -47,7 +48,30 @@ export default function ModalAddTransactions({
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const categories = useSelector(categoriesSelectors.getCategories);
+  let schema = yup.object().shape({
+    type: yup.string().default('+').required(t('modalAddTransactionValType')),
+    amount: yup
+      .string()
+      .max(10)
+      .default('0.00')
+      .required(t('modalAddTransactionValAmount')),
 
+    date: yup
+      .string()
+      .default(function () {
+        const today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        let currentDate = dd + '.' + mm + '.' + yyyy;
+        return currentDate;
+      })
+      .required(),
+    comment: yup.string().max(15, t('modalAddTransactionValCommentMax')),
+    newCategory: yup
+      .string()
+      .max(15, t('modalAddTransactionValNewCategoryMax')),
+  });
   const handleCheckbox = e => {
     e.target.checked === true
       ? setTransactionType('-')
@@ -178,6 +202,7 @@ export default function ModalAddTransactions({
             name="newCategory"
             placeholder={t('modalAddTransactionNewCategory')}
             disabled={category}
+            maxLength="15"
             className={s.newCategory}
             onChange={addCategory}
           />
@@ -218,6 +243,7 @@ export default function ModalAddTransactions({
               initialValue={currentDate}
               closeOnSelect={true}
               name="date"
+              inputProps={{ readOnly: true }}
               locale={lang ? 'en' : 'ru'}
               onChange={getDate}
             />
