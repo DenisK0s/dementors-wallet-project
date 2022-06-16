@@ -9,9 +9,9 @@ import { useLocation } from "react-router-dom";
 import s from "./DashbordComponents.module.css";
 import Modal from "../modal";
 import { ModalAddTransactionsBtn } from "../modalAddTransactions";
-import categoriesSelectors from "../../redux/categories/categories-selectors";
 import authSelectors from "../../redux/auth/auth-selectors";
 import globalSelectors from "../../redux/global/global-selectors";
+import { getTransactionsExistingStatus } from "../../redux/transactions/transaction-selectors";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import statisticsOperations from "../../redux/statistics/statistics-operations";
 import categoriesOperations from "../../redux/categories/categories-operations";
@@ -20,11 +20,13 @@ export default function DashboardComponents() {
   const [display, setDisplay] = useState();
   const lang = useSelector(globalSelectors.lang);
   const isModalOpen = useSelector(globalSelectors.isModalOpen);
-  const test = useSelector(categoriesSelectors.getCategories);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const location = useLocation();
   const path = location.pathname;
   const dispatch = useDispatch();
+
+  // console.log("hello from DashboardComponents");
 
   useEffect(() => {
     setDisplay(path === "exchange-rate" ? true : false);
@@ -33,8 +35,10 @@ export default function DashboardComponents() {
     if (isLoggedIn) {
       dispatch(categoriesOperations.getCategories());
     }
-    dispatch(transactionsOperations.fetchTransactions());
-    dispatch(statisticsOperations.getStatistics({}));
+    if (!areTransactionsExist) {
+      dispatch(transactionsOperations.fetchTransactions());
+      dispatch(statisticsOperations.getStatistics({}));
+    }
   }, []);
   return (
     <>

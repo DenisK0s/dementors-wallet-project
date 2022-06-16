@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import authSelectors from "../../redux/auth/auth-selectors";
-// import globalSelectors from "../../redux/global/global-selectors";
 import { setPage } from "../../redux/transactions/transaction-actions";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import {
@@ -14,37 +13,34 @@ import {
 } from "../../redux/transactions/transaction-selectors";
 import s from "./TransactionsTable.module.css";
 
-// {
-//   items: [],
-//   currentBalance: null,
-//   currentPage: 1,
-//   pages: null,
-//   areTransactionsExist: false,
-// };
-
 export default function TransactionsTable() {
   const { t } = useTranslation();
-  const currentPage = useSelector(getCurrentPage);
   const dispatch = useDispatch();
+  const currentPage = useSelector(getCurrentPage);
   const userName = useSelector(authSelectors.getUsername);
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const transactions = useSelector(getTransactions);
   const page = useSelector(getPagesQuantity);
 
-  useEffect(() => {
-    if (currentPage) {
-      dispatch(transactionsOperations.fetchTransactions(currentPage));
-    }
-  }, [dispatch, currentPage]);
+  // useEffect(() => {
+  //   if (currentPage) {
+  //     dispatch(transactionsOperations.fetchTransactions(currentPage));
+  //   }
+  // }, []);
 
   const setNextPage = () => {
     if (currentPage === null) {
       dispatch(setPage(2));
+      dispatch(transactionsOperations.fetchTransactions(2));
       return;
     }
     dispatch(setPage(currentPage + 1));
+    dispatch(transactionsOperations.fetchTransactions(currentPage + 1));
   };
-  const setPreviousPage = () => dispatch(setPage(currentPage - 1));
+  const setPreviousPage = () => {
+    dispatch(setPage(currentPage - 1));
+    dispatch(transactionsOperations.fetchTransactions(currentPage - 1));
+  };
 
   return areTransactionsExist ? (
     <>
