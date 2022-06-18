@@ -28,6 +28,7 @@ export default function Statistics() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("Statistics useEffectx");
     if (selectedMonth) {
       dispatch(statisticsOperations.getStatistics({ selectedMonth }));
     }

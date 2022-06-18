@@ -21,8 +21,7 @@ const LoginPage = () => {
             timeout={1200}
             classNames={animationStyles}
             unmountOnExit
-            nodeRef={nodeRef1}
-          >
+            nodeRef={nodeRef1}>
             <p className={s.title} ref={nodeRef1}>
               Finance App
             </p>
@@ -33,8 +32,7 @@ const LoginPage = () => {
           timeout={1200}
           classNames={animationStyles}
           unmountOnExit
-          nodeRef={nodeRef2}
-        >
+          nodeRef={nodeRef2}>
           <LoginForm nodeRef={nodeRef2} />
         </CSSTransition>
         <div className={s.ellipseBlur}></div>

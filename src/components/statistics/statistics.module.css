@@ -32,6 +32,11 @@
     background-color: #50edbb;
   }
 
+  .doughnut {
+    width: 320px;
+    height: 320px;
+  }
+
   .container_statistics {
     width: 395px;
     margin-left: auto;
@@ -195,10 +200,9 @@
     width: 320px;
     height: 320px;
   }
-
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .box_statistics {
     width: 320px;
     backdrop-filter: blur(50px);
@@ -209,6 +213,11 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
+  }
+
+  .doughnut {
+    width: 100%;
+    height: 100%;
   }
 
   .title_statistics {
@@ -237,6 +246,8 @@
   }
 
   .box_data {
+    display: flex;
+    justify-content: center;
     padding-top: 32px;
   }
 

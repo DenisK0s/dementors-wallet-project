@@ -11,6 +11,7 @@ import Modal from "../modal";
 import { ModalAddTransactionsBtn } from "../modalAddTransactions";
 import authSelectors from "../../redux/auth/auth-selectors";
 import globalSelectors from "../../redux/global/global-selectors";
+import categoriesSelectors from "../../redux/categories/categories-selectors";
 import { getTransactionsExistingStatus } from "../../redux/transactions/transaction-selectors";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import statisticsOperations from "../../redux/statistics/statistics-operations";
@@ -19,14 +20,13 @@ import categoriesOperations from "../../redux/categories/categories-operations";
 export default function DashboardComponents() {
   const [display, setDisplay] = useState();
   const lang = useSelector(globalSelectors.lang);
+  const test = useSelector(categoriesSelectors.getCategories);
   const isModalOpen = useSelector(globalSelectors.isModalOpen);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const location = useLocation();
   const path = location.pathname;
   const dispatch = useDispatch();
-
-  // console.log("hello from DashboardComponents");
 
   useEffect(() => {
     setDisplay(path === "exchange-rate" ? true : false);
@@ -37,8 +37,8 @@ export default function DashboardComponents() {
     }
     if (!areTransactionsExist) {
       dispatch(transactionsOperations.fetchTransactions());
-      dispatch(statisticsOperations.getStatistics({}));
     }
+    dispatch(statisticsOperations.getStatistics({}));
   }, []);
   return (
     <>

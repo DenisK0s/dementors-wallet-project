@@ -1,5 +1,4 @@
 import Transaction from "components/transaction";
-import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import authSelectors from "../../redux/auth/auth-selectors";
@@ -14,6 +13,7 @@ import {
 import s from "./TransactionsTable.module.css";
 
 export default function TransactionsTable() {
+  console.log("Hello from TransactionsTable");
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const currentPage = useSelector(getCurrentPage);
@@ -21,12 +21,6 @@ export default function TransactionsTable() {
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const transactions = useSelector(getTransactions);
   const page = useSelector(getPagesQuantity);
-
-  // useEffect(() => {
-  //   if (currentPage) {
-  //     dispatch(transactionsOperations.fetchTransactions(currentPage));
-  //   }
-  // }, []);
 
   const setNextPage = () => {
     if (currentPage === null) {

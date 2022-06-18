@@ -1,13 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Select, { components  } from "react-select";
+import Select, { components } from "react-select";
 import IndicatorArrow from "../../assets/images/icons/categories.svg";
 
-export default function StatisticsSelect({
-  onChange,
-  options,
-  statsSelectPlaceholder,
-}) {
+export default function StatisticsSelect({ onChange, options, statsSelectPlaceholder }) {
   const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
@@ -16,10 +12,18 @@ export default function StatisticsSelect({
     );
   };
   const customStyles = {
+    container: () => ({
+      position: "relative",
+      "@media only screen and (max-width: 767.9px)": {
+        "&:first-child": {
+          marginRight: "10px",
+        },
+      },
+    }),
     menu: (provided, state) => ({
       ...provided,
       width: "100%",
-      backgroundColor: "rgba(255,255,255,0.8)",
+      backgroundColor: "rgba(255,255,255)",
       backdropFilter: "blur(8px)",
       zIndex: "2",
       borderRadius: "30px",
@@ -27,9 +31,8 @@ export default function StatisticsSelect({
     indicatorsContainer: () => ({
       width: "20px",
       height: "20px",
-      position: "absolute",
-      right: "20px",
       marginTop: "-8px",
+      marginRight: "10px",
     }),
     dropdownIndicator: () => ({
       width: "20px",
@@ -40,13 +43,16 @@ export default function StatisticsSelect({
     control: () => ({
       display: "flex",
       alignItems: "center",
-      justifiContent: "center",
+      justifyContent: "center",
       width: "160px",
       height: "50px",
       border: "1px solid #000000",
       boxSizing: "border-box",
       borderRadius: "30px",
       textAlign: "center",
+      "@media only screen and (max-width: 767.9px)": {
+        width: "130px",
+      },
     }),
     placeholder: () => ({
       color: "var(--primary-text-color)",

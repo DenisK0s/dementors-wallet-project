@@ -13,12 +13,16 @@ const authPersistConfig = {
   storage: storageSession,
   whitelist: ["token"],
 };
+const tyransactionsPersistConfig = {
+  key: "transactions",
+  storage: storageSession,
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoryReducer,
-    transactions: transactionsReducer,
+    transactions: persistReducer(tyransactionsPersistConfig, transactionsReducer),
     global: loadingReducer,
     statistics: statisticsReducer,
   },

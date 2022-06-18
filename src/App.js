@@ -7,7 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import authSelectors from "redux/auth/auth-selectors";
 import globalSelectors from "redux/global/global-selectors";
 import "../src/assets/css/pageAnimation.css";
@@ -37,7 +37,7 @@ export default function App() {
   }, [location, navigate]);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
+  }, []);
   const routes = [
     { path: "transactions", Component: TransactionsTable },
     { path: "stat", Component: Statistics },
@@ -56,63 +56,59 @@ export default function App() {
                 <DashboardComponents />
               </>
             )}
-            <TransitionGroup>
-              <CSSTransition key={location.key} timeout={600} classNames="page" unmountOnExit>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <PublicRoute restricted redirectTo="/wallet/transaction">
-                        <LoginView />
-                      </PublicRoute>
-                    }
-                  />
-                  <Route
-                    path="/register"
-                    element={
-                      <PublicRoute restricted>
-                        <RegisterView />
-                      </PublicRoute>
-                    }
-                  />
-                  <Route
-                    path="/login"
-                    element={
-                      <PublicRoute redirectTo="/wallet/transaction" restricted>
-                        <LoginView />
-                      </PublicRoute>
-                    }
-                  />
 
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicRoute restricted redirectTo="/wallet/transaction">
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute restricted>
+                    <RegisterView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute redirectTo="/wallet/transaction" restricted>
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/wallet/"
+                element={
+                  <PrivateRoute redirectTo="/login">
+                    <DashboardPage />
+                  </PrivateRoute>
+                }>
+                {routes.map(({ path, Component }) => (
                   <Route
-                    path="/wallet/"
+                    key={location.key}
+                    path={path}
                     element={
                       <PrivateRoute redirectTo="/login">
-                        <DashboardPage />
+                        <Component />
                       </PrivateRoute>
-                    }>
-                    {routes.map(({ path, Component }) => (
-                      <Route
-                        key={location.key}
-                        path={path}
-                        element={
-                          <PrivateRoute redirectTo="/login">
-                            <Component />
-                          </PrivateRoute>
-                        }></Route>
-                    ))}
-                  </Route>
-                  <Route
-                    path="*"
-                    element={
-                      <PublicRoute restricted>
-                        <NotFoundPage />
-                      </PublicRoute>
-                    }
-                  />
-                </Routes>
-              </CSSTransition>
-            </TransitionGroup>
+                    }></Route>
+                ))}
+              </Route>
+              <Route
+                path="*"
+                element={
+                  <PublicRoute restricted>
+                    <NotFoundPage />
+                  </PublicRoute>
+                }
+              />
+            </Routes>
           </Suspense>
         </>
       )}
