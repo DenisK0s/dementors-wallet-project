@@ -7,7 +7,6 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import authSelectors from "redux/auth/auth-selectors";
 import globalSelectors from "redux/global/global-selectors";
 import "../src/assets/css/pageAnimation.css";

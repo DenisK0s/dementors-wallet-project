@@ -13,7 +13,6 @@ import {
 import s from "./TransactionsTable.module.css";
 
 export default function TransactionsTable() {
-  console.log("Hello from TransactionsTable");
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const currentPage = useSelector(getCurrentPage);
