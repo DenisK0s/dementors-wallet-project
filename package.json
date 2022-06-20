@@ -17,6 +17,7 @@
     "i18next-browser-languagedetector": "^6.1.4",
     "modern-normalize": "^1.1.0",
     "moment": "^2.29.2",
+    "overlayscrollbars": "^1.13.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.1.0",

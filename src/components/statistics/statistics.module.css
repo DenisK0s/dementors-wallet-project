@@ -101,6 +101,11 @@
     background: #fed057;
     border-radius: 2px;
   }
+
+  .list_statistics_wrapper {
+    height: 250px;
+  }
+
   .list_statistics {
     marker: none;
     padding-right: 52px;
@@ -112,6 +117,18 @@
     justify-content: space-between;
     margin-bottom: 28px;
   }
+
+  .info_statistics_summary {
+    margin-top: 15px;
+    padding-right: 52px;
+    padding-left: 17px;
+  }
+
+  .info_statistics_summary_item {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .info_statistics {
     margin-right: auto;
     margin-left: 16px;
@@ -315,6 +332,10 @@
     border-radius: 2px;
   }
 
+  .list_statistics_wrapper {
+    height: 250px;
+  }
+
   .list_statistics {
     marker: none;
     padding-right: 40px;
@@ -327,6 +348,16 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 28px;
+  }
+
+  .info_statistics_summary {
+    padding-right: 52px;
+    padding-left: 17px;
+  }
+
+  .info_statistics_summary_item {
+    display: flex;
+    justify-content: space-between;
   }
 
   .info_statistics {

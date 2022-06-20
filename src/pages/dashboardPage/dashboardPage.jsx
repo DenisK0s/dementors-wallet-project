@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import s from "./dashboardPage.module.css";
 
 const DashboardPage = () => {
-  console.log("Hello from DashboardPage");
   return (
     <>
       <Container>

@@ -16,6 +16,7 @@ const {
   modalLogOutClose,
   modalLogOutOpen,
   loginVerificationModal,
+  checkDataStatus,
 } = modalActions;
 
 const isModalOpen = createReducer(false, {
@@ -39,6 +40,12 @@ const isModalAddTransactionOpen = createReducer(false, {
 
 const isEnglishVersion = createReducer(false, {
   [changeLanguage]: (_, { payload }) => payload,
+});
+
+const isData = createReducer(false, {
+  [checkDataStatus]: (_, { payload }) => payload,
+  [transactionsOperations.fetchTransactions.fulfilled]: () => false,
+  [transactionsOperations.addTransaction.fulfilled]: () => false,
 });
 
 const isLoading = createReducer(false, {
@@ -66,15 +73,14 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {
-  [categoriesOperations.getCategories.rejected]: (_, { payload }) =>
-    toast.error(payload),
-  [transactionsOperations.fetchTransactions.rejected]: (_, { payload }) =>
-    toast.error(payload),
+  [categoriesOperations.getCategories.rejected]: (_, { payload }) => toast.error(payload),
+  [transactionsOperations.fetchTransactions.rejected]: (_, { payload }) => toast.error(payload),
   [transactionsOperations.addTransaction.rejected]: (_, { payload }) => payload,
   [statisticsOperations.getStatistics.rejected]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
+  isData,
   isLoading,
   isModalOpen,
   isModalAddTransactionOpen,

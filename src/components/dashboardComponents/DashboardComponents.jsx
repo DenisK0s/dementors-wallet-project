@@ -32,6 +32,9 @@ export default function DashboardComponents() {
     setDisplay(path === "exchange-rate" ? true : false);
   }, [path]);
   useEffect(() => {
+    setDisplay(path === "exchange-rate" ? true : false);
+  }, [path]);
+  useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoriesOperations.getCategories());
     }

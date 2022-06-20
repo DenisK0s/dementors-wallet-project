@@ -61,6 +61,12 @@ input {
 p {
   margin: 0;
 }
+
+.os-theme-dark > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+  max-height: 30%;
+  min-height: 15px;
+}
+
 @media screen and (min-width: 768px) {
   body {
     background-image: url(../../assets/images/Ellipse1_tabl.png),

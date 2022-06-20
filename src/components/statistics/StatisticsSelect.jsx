@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 import Select, { components } from "react-select";
 import IndicatorArrow from "../../assets/images/icons/categories.svg";
@@ -15,7 +14,7 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
     container: () => ({
       position: "relative",
       "@media only screen and (max-width: 767.9px)": {
-        "&:first-child": {
+        "&:first-of-type": {
           marginRight: "10px",
         },
       },
@@ -27,6 +26,20 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       backdropFilter: "blur(8px)",
       zIndex: "2",
       borderRadius: "30px",
+    }),
+    menuList: (provided, state) => ({
+      ...provided,
+      paddingRight: "10px",
+      "&::-webkit-scrollbar": {
+        width: "5px",
+        boxShadow: "inset 1px 1px 10px #f3faf7",
+      },
+      "&::-webkit-scrollbar-thumb": {
+        borderRadius: "20px",
+      },
+      "&::-webkit-scrollbar-thumb:hover": {
+        backgroundColor: "#4a56e2",
+      },
     }),
     indicatorsContainer: () => ({
       width: "20px",
@@ -106,7 +119,3 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
     />
   );
 }
-
-StatisticsSelect.propTypes = {
-  onChange: PropTypes.func.isRequired,
-};

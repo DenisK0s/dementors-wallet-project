@@ -20,7 +20,8 @@ export const startV = {
 };
 
 const Charts = () => {
-  const statistics = useSelector(statisticsSelectors.statisticMinus);
+  const statsCosts = useSelector(statisticsSelectors.statisticMinus);
+  const statsIncomes = useSelector(statisticsSelectors.statisticPlus);
   const balance = useSelector(getBalance);
   const [data, setData] = useState(startV);
   useEffect(() => {
@@ -35,13 +36,21 @@ const Charts = () => {
         {},
       ],
     };
-    statistics?.forEach(({ color, minus, category }) => {
-      newData.datasets[0].backgroundColor.push(color);
-      newData.datasets[0].data.push(minus);
-      newData.datasets[0].label.push(category);
-    });
+    if (statsCosts.length === 0) {
+      statsIncomes.forEach(({ color, plus, category }) => {
+        newData.datasets[0].backgroundColor.push(color);
+        newData.datasets[0].data.push(plus);
+        newData.datasets[0].label.push(category);
+      });
+    } else {
+      statsCosts.forEach(({ color, minus, category }) => {
+        newData.datasets[0].backgroundColor.push(color);
+        newData.datasets[0].data.push(minus);
+        newData.datasets[0].label.push(category);
+      });
+    }
     setData(newData);
-  }, [statistics]);
+  }, []);
 
   return (
     balance && (
