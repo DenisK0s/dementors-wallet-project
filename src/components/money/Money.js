@@ -3,15 +3,22 @@ import { useEffect, useState } from "react";
 import s from "./Money.module.css";
 import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
+import CurrencyConverter from "../currencyConverter";
+import { useMatchMedia } from "../../hooks/use-match-media";
+
 export default function Money() {
   const [currencies, setCurrencies] = useState([]);
+  const { isDesctop } = useMatchMedia();
+
+  const currencySelectOptions = currencies.map((currency) => {
+    return { value: currency.ccy, label: currency.ccy };
+  });
 
   useEffect(() => {
     let clear = true;
 
     (async () => {
-      const date = await getExchangeRates();
-      const result = date?.filter((item) => item.ccy !== "BTC");
+      const result = await getExchangeRates();
       if (clear) {
         setCurrencies(result);
       }
@@ -20,13 +27,21 @@ export default function Money() {
     return () => (clear = false);
   }, []);
   return (
-    <table className={s.container}>
-      <TableHeader />
-      <tbody className={s.gap}>
-        {currencies?.map((item) => {
-          return <TableRow key={item.ccy} date={item} />;
-        })}
-      </tbody>
-    </table>
+    <>
+      <table className={s.container}>
+        <TableHeader />
+        <tbody className={s.gap}>
+          {currencies?.map((item) => {
+            return <TableRow key={item.ccy} date={item} />;
+          })}
+        </tbody>
+      </table>
+      {isDesctop && (
+        <CurrencyConverter
+          currencyData={currencies}
+          currencySelectOptions={currencySelectOptions}
+        />
+      )}
+    </>
   );
 }

@@ -1,23 +1,20 @@
 import Select, { components } from "react-select";
-import IndicatorArrow from "../../assets/images/icons/categories.svg";
+import CustomIdicatorArrowIcon from "../utils/CustomIdicatorArrowIcon";
 
-export default function StatisticsSelect({ onChange, options, statsSelectPlaceholder }) {
+export default function CurrencySelect({
+  onChange,
+  options,
+  currencySelectPlaceholder,
+  defaultValue,
+}) {
   const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
-        <img src={IndicatorArrow} alt="" width="20px" height="20px" />
+        <CustomIdicatorArrowIcon width="10px" height="10px" stroke="#fff" />
       </components.DropdownIndicator>
     );
   };
   const customStyles = {
-    container: () => ({
-      position: "relative",
-      "@media only screen and (max-width: 767.9px)": {
-        "&:first-of-type": {
-          marginRight: "10px",
-        },
-      },
-    }),
     menu: (provided, state) => ({
       ...provided,
       width: "100%",
@@ -26,24 +23,10 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       zIndex: "2",
       borderRadius: "30px",
     }),
-    menuList: (provided, state) => ({
-      ...provided,
-      paddingRight: "10px",
-      "&::-webkit-scrollbar": {
-        width: "5px",
-        boxShadow: "inset 1px 1px 10px #f3faf7",
-      },
-      "&::-webkit-scrollbar-thumb": {
-        borderRadius: "20px",
-      },
-      "&::-webkit-scrollbar-thumb:hover": {
-        backgroundColor: "#4a56e2",
-      },
-    }),
     indicatorsContainer: () => ({
       width: "20px",
       height: "20px",
-      marginTop: "-8px",
+      marginTop: "-15px",
       marginRight: "10px",
     }),
     dropdownIndicator: () => ({
@@ -56,15 +39,11 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      width: "160px",
       height: "50px",
-      border: "1px solid #000000",
+      border: "1px solid #fff",
       boxSizing: "border-box",
-      borderRadius: "30px",
+      borderRadius: "50%",
       textAlign: "center",
-      "@media only screen and (max-width: 767.9px)": {
-        width: "130px",
-      },
     }),
     placeholder: () => ({
       color: "var(--primary-text-color)",
@@ -104,12 +83,15 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       },
     }),
   };
+
+  console.log(defaultValue);
   return (
     <Select
       components={{ DropdownIndicator }}
       options={options}
       styles={customStyles}
-      placeholder={statsSelectPlaceholder}
+      defaultValue={defaultValue}
+      placeholder={defaultValue}
       onChange={(e) => {
         onChange(e);
       }}
