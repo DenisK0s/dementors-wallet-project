@@ -5,7 +5,7 @@ import transactionsOperations from "./transaction-operations";
 const initialState = {
   items: [],
   currentBalance: null,
-  currentPage: null,
+  currentPage: 1,
   pages: null,
 };
 

@@ -31,6 +31,13 @@
   "currencyPurchase": "Purchase",
   "currencySale": "Sale",
 
+  "converterTitle": "Converter",
+  "exchangeRateStatusBuy": "B",
+  "exchangeRateStatusSale": "S",
+
+  "exchangeRateStatusBuyTitle": "Buy",
+  "exchangeRateStatusSaleTitle": "Sale",
+
   "statisticsTitle": "Statistics",
   "statisticsCategory": "Category",
   "statisticsAmounts": "Amount",

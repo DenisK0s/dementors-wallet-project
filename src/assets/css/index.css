@@ -7,6 +7,17 @@ body {
   overflow-x: hidden;
   background: rgba(228, 218, 218, 0.4);
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
 img {
   display: block;
   max-width: 100%;

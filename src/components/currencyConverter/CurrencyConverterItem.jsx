@@ -3,11 +3,24 @@ import React from "react";
 import CurrencySelect from "./CurrencySelect";
 import s from "./CurrencyConverter.module.css";
 
-const CurrencyConverterItem = ({ options, placeholder, selectedCurrency }) => {
+const CurrencyConverterItem = ({
+  amount,
+  options,
+  placeholder,
+  selectValue,
+  onChangeCurrency,
+  onChangeAmount,
+}) => {
   return (
     <div className={s.converterItem}>
-      <input type="number" placeholder={placeholder} className={s.converterItemTextField} />
-      <CurrencySelect options={options} defaultValue={selectedCurrency} />
+      <input
+        type="number"
+        value={amount}
+        placeholder={placeholder}
+        className={s.converterItemTextField}
+        onChange={onChangeAmount}
+      />
+      <CurrencySelect options={options} value={selectValue} onChange={onChangeCurrency} />
     </div>
   );
 };

@@ -1,19 +1,15 @@
 import Select, { components } from "react-select";
 import CustomIdicatorArrowIcon from "../utils/CustomIdicatorArrowIcon";
 
-export default function CurrencySelect({
-  onChange,
-  options,
-  currencySelectPlaceholder,
-  defaultValue,
-}) {
+export default function CurrencySelect({ onChange, options, currencySelectPlaceholder, value }) {
   const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
-        <CustomIdicatorArrowIcon width="10px" height="10px" stroke="#fff" />
+        {<CustomIdicatorArrowIcon width="10px" height="10px" stroke="#fff" />}
       </components.DropdownIndicator>
     );
   };
+
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
@@ -23,10 +19,11 @@ export default function CurrencySelect({
       zIndex: "2",
       borderRadius: "30px",
     }),
-    indicatorsContainer: () => ({
+    indicatorsContainer: (_, { selectProps: { noOptions } }) => ({
+      display: noOptions ? "none" : "block",
       width: "20px",
       height: "20px",
-      marginTop: "-15px",
+      marginTop: "-14px",
       marginRight: "10px",
     }),
     dropdownIndicator: () => ({
@@ -39,28 +36,33 @@ export default function CurrencySelect({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      height: "50px",
+      height: "40px",
+      color: "var(--green-color)",
       border: "1px solid #fff",
       boxSizing: "border-box",
       borderRadius: "50%",
       textAlign: "center",
+      "&:hover": {
+        cursor: "pointer",
+      },
     }),
-    placeholder: () => ({
-      color: "var(--primary-text-color)",
+    placeholder: (_, { selectProps: { noOptions } }) => ({
+      color: "var(--green-color)",
       position: "absolute",
-      paddingLeft: "20px",
+      marginTop: "2px",
+      paddingLeft: noOptions ? "20px" : "13px",
       fontWeight: "400",
-      fontSize: "18px",
+      fontSize: "16px",
     }),
     singleValue: () => ({
       position: "absolute",
-      paddingLeft: "20px",
-      fontSize: "18px",
+      paddingLeft: "13px",
+      fontSize: "16px",
     }),
     option: (provided) => ({
       ...provided,
       textAlign: "left",
-      fontSize: "18px",
+      fontSize: "16px",
       backgroundColor: "transparent",
       color: "inherit",
       padding: "20px",
@@ -84,14 +86,15 @@ export default function CurrencySelect({
     }),
   };
 
-  console.log(defaultValue);
   return (
     <Select
       components={{ DropdownIndicator }}
       options={options}
+      noOptions={!options ? true : false}
       styles={customStyles}
-      defaultValue={defaultValue}
-      placeholder={defaultValue}
+      value={value}
+      placeholder={value}
+      isDisabled={!options ? true : false}
       onChange={(e) => {
         onChange(e);
       }}

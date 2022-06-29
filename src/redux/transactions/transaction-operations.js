@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import globalActions from "../global/global-actions";
 
 const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
@@ -10,9 +9,9 @@ const fetchTransactions = createAsyncThunk(
       const { data } = await axios.get(`/transactions?page=${page}`);
       return data;
     } catch (error) {
-      if (error.message === "Request failed with status code 500") {
-        dispatch(globalActions.checkDataStatus(true));
-      }
+      // if (error.message === "Request failed with status code 500") {
+      //   dispatch(globalActions.checkDataStatus(true));
+      // }
       return rejectWithValue(error);
     }
   }

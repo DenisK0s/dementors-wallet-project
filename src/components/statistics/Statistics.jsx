@@ -41,7 +41,7 @@ export default function Statistics() {
 
   const { t, i18n } = useTranslation();
   const statsListWrapper = useRef(null);
-  const statsCosts = useSelector(statisticsSelectors.statisticMinus) || [];
+  const statsCosts = useSelector(statisticsSelectors.statisticMinus);
   const statsIncomes = useSelector(statisticsSelectors.statisticPlus);
   const balance = useSelector(statisticsSelectors.statisticTotal);
   const isNoData = useSelector(statisticsSelectors.isNoData);

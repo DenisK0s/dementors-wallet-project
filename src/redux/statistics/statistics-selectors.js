@@ -6,13 +6,14 @@ const statisticTotal = (state) => [
 ];
 const firstTransactionYear = (state) => state.statistics.statsData.firstTransactionYear;
 
-const isNoData = (state) => state.statistics.isNoData;
+const isNoData = ({ statistics }) =>
+  statistics.statsData.minus.length === 0 && statistics.statsData.plus.length === 0;
 
 const statisticsSelectors = {
   statisticPlus,
   statisticMinus,
   statisticTotal,
   firstTransactionYear,
-  isNoData
+  isNoData,
 };
 export default statisticsSelectors;

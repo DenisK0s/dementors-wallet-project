@@ -31,6 +31,14 @@
   "currencyPurchase": "Покупка",
   "currencySale": "Продажа",
 
+  "converterTitle": "Конвертер",
+
+  "exchangeRateStatusBuy": "К",
+  "exchangeRateStatusSale": "П",
+
+  "exchangeRateStatusBuyTitle": "Купить",
+  "exchangeRateStatusSaleTitle": "Продать",
+
   "statisticsTitle": "Статистика",
   "statisticsCategory": "Категория",
   "statisticsAmounts": "Cумма",

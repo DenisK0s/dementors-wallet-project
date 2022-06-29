@@ -2,7 +2,7 @@ import Transaction from "components/transaction";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import authSelectors from "../../redux/auth/auth-selectors";
-import globalSelectors from "../../redux/global/global-selectors";
+// import globalSelectors from "../../redux/global/global-selectors";
 import { setPage } from "../../redux/transactions/transaction-actions";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import {
@@ -17,7 +17,7 @@ export default function TransactionsTable() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const currentPage = useSelector(getCurrentPage);
-  const isData = useSelector(globalSelectors.isData);
+  // const isData = useSelector(globalSelectors.isData);
   const userName = useSelector(authSelectors.getUsername);
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const transactions = useSelector(getTransactions);
@@ -90,7 +90,7 @@ export default function TransactionsTable() {
           </div>
         </>
       )}
-      {isData && (
+      {!areTransactionsExist && (
         <div className={s.greetings}>
           <h2>{`${t("transactionsTableTitle")}, ${userName}!`}</h2>
           <p>{t("transactionsTableFirstParagraph")}</p>
