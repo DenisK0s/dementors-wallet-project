@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { CSSTransition } from "react-transition-group";
@@ -8,7 +9,7 @@ import { ReactComponent as Arrows } from "../../assets/images/icons/two-arrows-c
 
 const CurrencyConverter = ({ currencyData, currencySelectOptions }) => {
   const [isAnimation, setIsAnimation] = useState(false);
-  const defaultAmount = 1;
+  const defaultAmount = "1.00";
 
   const nodeRef = useRef(null);
 
@@ -34,13 +35,6 @@ const CurrencyConverter = ({ currencyData, currencySelectOptions }) => {
     const result = exchangeRateStatus ? Number(currency.buy) : Number(currency.sale);
 
     setExchangeRate(result);
-  };
-
-  const textfieldOutputHandler = (amount) => {
-    const amountNumber = Number(amount);
-    const isResultInteger = Number.isInteger(amountNumber);
-
-    return isResultInteger ? amountNumber.toFixed(2) : amount;
   };
 
   let fromAmount, toAmount;
@@ -128,6 +122,11 @@ const CurrencyConverter = ({ currencyData, currencySelectOptions }) => {
       </div>
     </div>
   );
+};
+
+CurrencyConverter.propTypes = {
+  currencyData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  currencySelectOptions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default CurrencyConverter;

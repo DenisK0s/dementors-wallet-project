@@ -10,6 +10,11 @@
   justify-content: center;
   z-index: 5;
 }
+
+.btnNone {
+  display: none;
+}
+
 .title {
   font-size: 24px;
   line-height: 45px;
@@ -44,8 +49,8 @@
 }
 .acceptBtn:hover,
 .acceptBtn:focus {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .acceptBtn:active {
   top: 2px;
@@ -65,7 +70,7 @@
 }
 .cancelBtn:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 0;
   height: 100%;
   top: 0;
@@ -92,7 +97,7 @@
 }
 .checkboxWrap .incomes,
 .checkboxWrap .outcomes {
-  font-family: 'Circe';
+  font-family: "Circe";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -151,7 +156,7 @@
   z-index: 1;
 }
 .knobs:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 44px;
   height: 44px;
@@ -171,10 +176,10 @@
   transition: 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
 }
 .knobsTransactions:before {
-  background-image: url('../../assets/images/icons/+.svg');
+  background-image: url("../../assets/images/icons/+.svg");
 }
 .checkbox:checked + .knobs:before {
-  content: '';
+  content: "";
 
   left: 42px;
   background-color: var(--red-color);
@@ -182,7 +187,7 @@
   box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
 }
 .checkbox:checked + .knobsTransactions:before {
-  background-image: url('../../assets/images/icons/outcomes.svg');
+  background-image: url("../../assets/images/icons/outcomes.svg");
 }
 .knobs,
 .knobs:before,
@@ -211,7 +216,7 @@
   width: 100%;
   line-height: 0;
   padding: 0px 10px;
-  background-image: url('../../assets/images/icons/data.svg');
+  background-image: url("../../assets/images/icons/data.svg");
   background-repeat: no-repeat;
   background-position: 94% 2px;
   font-weight: 400;
@@ -239,7 +244,7 @@
   background: var(--green-color);
   border-radius: 50%;
   border: transparent;
-  background-image: url('../../assets/images/icons/+.svg');
+  background-image: url("../../assets/images/icons/+.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;

@@ -14,26 +14,41 @@ const token = {
   },
 };
 
-const register = createAsyncThunk("auth/register", async (credentials) => {
-  try {
-    const { data } = await axios.post("/users/auth", credentials);
-    token.set(data.token);
+const getInvalidDataMessage = (lang) => {
+  return lang
+    ? "Check the correctness of the entered data !"
+    : "Проверьте верность введённых данных !";
+};
 
-    return data;
-  } catch (error) {
-    toast.error("Проверьте верность введите данных");
-    return createAsyncThunk.rejectWithValue(error);
+const register = createAsyncThunk(
+  "auth/register",
+  async (credentials, { getState, rejectWithValue }) => {
+    const state = getState();
+    const { isEnglishVersion } = state.global;
+    const checkEnteredDataMessage = getInvalidDataMessage(isEnglishVersion);
+    try {
+      const { data } = await axios.post("/users/auth", credentials);
+      token.set(data.token);
+
+      return data;
+    } catch (error) {
+      toast.error(checkEnteredDataMessage);
+      return rejectWithValue(error);
+    }
   }
-});
+);
 
-const logIn = createAsyncThunk("auth/login", async (credentials) => {
+const logIn = createAsyncThunk("auth/login", async (credentials, { getState, rejectWithValue }) => {
+  const state = getState();
+  const { isEnglishVersion } = state.global;
+  const checkEnteredDataMessage = getInvalidDataMessage(isEnglishVersion);
   try {
     const { data } = await axios.post("/users/login", credentials);
     token.set(data.token);
     return data;
   } catch (error) {
-    toast.error("Проверьте верность введите данных");
-    return createAsyncThunk.rejectWithValue(error);
+    toast.error(checkEnteredDataMessage);
+    return rejectWithValue(error);
   }
 });
 
@@ -46,22 +61,25 @@ const logOut = createAsyncThunk("auth/logout", async () => {
   }
 });
 
-const fetchCurrentUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) => {
-  const state = thunkAPI.getState();
-  const persistedToken = state.auth.token;
+const fetchCurrentUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
+    const persistedToken = state.auth.token;
 
-  if (persistedToken === null) {
-    return thunkAPI.rejectWithValue();
-  }
+    if (persistedToken === null) {
+      return rejectWithValue();
+    }
 
-  token.set(persistedToken);
-  try {
-    const { data } = await axios.get("/users/current");
-    return data;
-  } catch (error) {
-    toast.error(error.message);
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get("/users/current");
+      return data;
+    } catch (error) {
+      toast.error(error.message);
+    }
   }
-});
+);
 
 const authOperations = {
   register,

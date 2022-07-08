@@ -41,7 +41,7 @@ export default function DashboardComponents() {
     if (!areTransactionsExist) {
       dispatch(transactionsOperations.fetchTransactions());
     }
-    dispatch(statisticsOperations.getStatistics({}));
+    // dispatch(statisticsOperations.getStatistics({}));
   }, []);
   return (
     <>

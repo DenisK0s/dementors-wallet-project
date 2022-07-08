@@ -9,9 +9,6 @@ const fetchTransactions = createAsyncThunk(
       const { data } = await axios.get(`/transactions?page=${page}`);
       return data;
     } catch (error) {
-      // if (error.message === "Request failed with status code 500") {
-      //   dispatch(globalActions.checkDataStatus(true));
-      // }
       return rejectWithValue(error);
     }
   }
@@ -22,8 +19,10 @@ const addTransaction = createAsyncThunk(
   async (transaction, { getState, rejectWithValue }) => {
     const state = getState();
     const { isEnglishVersion } = state.global;
+    const insufficientFundsMessage = isEnglishVersion
+      ? "Insufficient funds! Make deposit first to have a positive balance."
+      : "Недостаточный баланс !!! Сначала внесите транзакцию в доходы";
     const { newCategory, date, type, comment, amount } = transaction;
-
     try {
       if (newCategory) {
         const newCategoryObj = {
@@ -50,7 +49,7 @@ const addTransaction = createAsyncThunk(
       const response = await axios.post("/transactions", transaction);
       return response.data;
     } catch (error) {
-      toast.error("Недостаточный баланс !!! Сначала внесите транзакцию в доходы");
+      toast.error(insufficientFundsMessage);
       return rejectWithValue(error);
     }
   }
