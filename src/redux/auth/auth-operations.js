@@ -2,8 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// axios.defaults.baseURL = "https://wallet-app-go-it.herokuapp.com/api";
-axios.defaults.baseURL = "http://localhost:4000/api";
+axios.defaults.baseURL = "https://wallet-app-go-it.herokuapp.com/api";
 
 const token = {
   set(token) {

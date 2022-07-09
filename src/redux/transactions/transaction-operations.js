@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import statisticsOperations from "../statistics/statistics-operations";
 import { toast } from "react-toastify";
 
 const fetchTransactions = createAsyncThunk(
@@ -16,7 +17,7 @@ const fetchTransactions = createAsyncThunk(
 
 const addTransaction = createAsyncThunk(
   "transactions/addTransaction",
-  async (transaction, { getState, rejectWithValue }) => {
+  async (transaction, { dispatch, getState, rejectWithValue }) => {
     const state = getState();
     const { isEnglishVersion } = state.global;
     const insufficientFundsMessage = isEnglishVersion
@@ -42,11 +43,12 @@ const addTransaction = createAsyncThunk(
         };
 
         const { data } = await axios.post("/transactions", newTransaction);
-
+        dispatch(statisticsOperations.getStatistics({}));
         return data;
       }
 
       const response = await axios.post("/transactions", transaction);
+      dispatch(statisticsOperations.getStatistics({}));
       return response.data;
     } catch (error) {
       toast.error(insufficientFundsMessage);

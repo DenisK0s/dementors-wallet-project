@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import CurrencySelect from "./CurrencySelect";
 import s from "./CurrencyConverter.module.css";
 
@@ -25,7 +25,12 @@ const CurrencyConverterItem = ({
   );
 };
 
-// CurrencyConverterItem.propTypes = propTypes;
-// CurrencyConverterItem.defaultProps = defaultProps;
+CurrencyConverterItem.propTypes = {
+  amount: PropTypes.string,
+  placeholder: PropTypes.string,
+  selectValue: PropTypes.string.isRequired,
+  onChangeCurrency: PropTypes.func,
+  onChangeAmount: PropTypes.func,
+};
 
 export default CurrencyConverterItem;

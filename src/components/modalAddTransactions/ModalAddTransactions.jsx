@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
@@ -7,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import closeBtnIcon from "../../assets/images/icons/close.svg";
 import modalActions from "../../redux/global/global-actions";
-import PropTypes from "prop-types";
 import "moment/locale/ru";
 import "moment/locale/en-au";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
@@ -34,7 +34,7 @@ const initialValues = {
   category: "",
 };
 
-export default function ModalAddTransactions({ lang, handleClose, testCategory }) {
+export default function ModalAddTransactions({ lang, handleClose }) {
   const [date, setDate] = useState(currentDate);
   const [dateFiltr, setDateFiltr] = useState(new Date(today).getTime());
   const [amount, setAmount] = useState("");

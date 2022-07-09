@@ -1,6 +1,4 @@
 export const prepareOptsForChart = (costs, incomes) => {
-  console.log(costs, "costs");
-  console.log(incomes, "incomes");
   const newOpts = {
     datasets: [
       {

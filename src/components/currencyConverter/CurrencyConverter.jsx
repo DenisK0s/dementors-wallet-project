@@ -125,8 +125,10 @@ const CurrencyConverter = ({ currencyData, currencySelectOptions }) => {
 };
 
 CurrencyConverter.propTypes = {
-  currencyData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  currencySelectOptions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  currencyData: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+  currencySelectOptions: PropTypes.arrayOf(
+    PropTypes.shape({ value: PropTypes.string.isRequired, label: PropTypes.string.isRequired })
+  ).isRequired,
 };
 
 export default CurrencyConverter;

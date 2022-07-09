@@ -30,12 +30,6 @@ export default function Statistics() {
   const isNoData = useSelector(statisticsSelectors.isNoData);
 
   useEffect(() => {
-    if (isNoData) {
-      dispatch(statisticsOperations.getStatistics({}));
-    }
-  }, []);
-
-  useEffect(() => {
     if (selectedMonth) {
       dispatch(statisticsOperations.getStatistics({ selectedMonth }));
     }
@@ -52,6 +46,7 @@ export default function Statistics() {
     statsCosts,
     statsIncomes,
   ]);
+  //
   const firstTransactionYear = useSelector(statisticsSelectors.firstTransactionYear);
   const hasScroll = !isMobile && statsCosts.length > 5;
 

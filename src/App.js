@@ -36,7 +36,7 @@ export default function App() {
   }, [location, navigate]);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-  }, []);
+  }, [dispatch]);
   const routes = [
     { path: "transactions", Component: TransactionsTable },
     { path: "stat", Component: Statistics },

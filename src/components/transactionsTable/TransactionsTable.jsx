@@ -17,7 +17,6 @@ export default function TransactionsTable() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const currentPage = useSelector(getCurrentPage);
-  // const isData = useSelector(globalSelectors.isData);
   const userName = useSelector(authSelectors.getUsername);
   const areTransactionsExist = useSelector(getTransactionsExistingStatus);
   const transactions = useSelector(getTransactions);

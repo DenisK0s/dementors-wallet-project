@@ -99,7 +99,6 @@ export default function CurrencySelect({ onChange, options, currencySelectPlaceh
         onChange(e);
       }}
       isSearchable={false}
-      // menuIsOpen
     />
   );
 }

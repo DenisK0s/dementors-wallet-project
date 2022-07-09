@@ -13,10 +13,7 @@ const authPersistConfig = {
   storage: storageSession,
   whitelist: ["token"],
 };
-// const transactionsPersistConfig = {
-//   key: "transactions",
-//   storage: storageSession,
-// };
+
 const globalPersistConfig = {
   key: "lang",
   storage: storage,

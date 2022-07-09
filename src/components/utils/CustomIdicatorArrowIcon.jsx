@@ -16,6 +16,11 @@ const CustomIdicatorArrowIcon = ({ width, height, fill = "none", stroke }) => {
   );
 };
 
-CustomIdicatorArrowIcon.propTypes = propTypes;
+CustomIdicatorArrowIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  fill: PropTypes.string,
+  stroke: PropTypes.string,
+};
 
 export default CustomIdicatorArrowIcon;

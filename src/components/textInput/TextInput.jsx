@@ -1,4 +1,5 @@
-import { useField } from 'formik';
+import PropTypes from "prop-types";
+import { useField } from "formik";
 
 export default function TextInput({ label, ...props }) {
   const [field] = useField(props);
@@ -11,3 +12,7 @@ export default function TextInput({ label, ...props }) {
     </>
   );
 }
+
+TextInput.propTypes = {
+  label: PropTypes.string,
+};
