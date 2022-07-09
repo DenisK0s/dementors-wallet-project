@@ -19,7 +19,7 @@
  <li>There is a checkbox for setting a language at the top of the app. You can choose Russian or English.</li>
  <li>Start to add transaction. Push the button in the lower right corner and you will see a form for creating a new transaction. We would like to pay your attention on the one thing: you need to start from the <b>"Incomes"</b> transaction to make it possible to add your first transaction and calculate current balance. </li>
  <li>You can choose the caregory of your transaction or create a new one.</li>
- <li>There is a current exchange rate on the right part of the display.</li>
+ <li>There is a table with the current exchange rate on the left part of the screen and a handy currency converter.</li>
  <li>Also on the right you can see a link to statistics that shows the amount of income and expenses by categories, date.</li>
 </ol>
 
