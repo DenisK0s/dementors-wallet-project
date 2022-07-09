@@ -1,6 +1,8 @@
 <h1>Wallet</h1>
 <h2>What is it ?</h2>
-<p>This is an app that gives you oportunities to controll your money transactions. We created this app as a team project while studying at the GoIT school. Our app alows to add transactions, see the current exchange rate, view statistics on your transactions and switch the language for a more convenient use of the <b>Wallet</b>.</p>
+<p>This is an app that gives you oportunities to controll your money transactions. We created this app as a team project while studying at the GoIT school. 
+Our app alows you:
+<br>- add transactions; <br>- see the current exchange rate; <br>- convert currency; <br>- view statistics on your transactions and switch the language for a more convenient use of the <b>Wallet</b>.</p>
 <p></p>
 <p></p>
 
