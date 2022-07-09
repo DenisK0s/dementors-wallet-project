@@ -1,0 +1,7 @@
+.enter {
+  transform: rotate(0deg);
+}
+.enterActive {
+  transform: rotate(180deg);
+  transition: transform 150ms linear;
+}

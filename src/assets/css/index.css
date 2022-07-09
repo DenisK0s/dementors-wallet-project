@@ -7,6 +7,17 @@ body {
   overflow-x: hidden;
   background: rgba(228, 218, 218, 0.4);
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -61,6 +72,12 @@ input {
 p {
   margin: 0;
 }
+
+.os-theme-dark > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+  max-height: 30%;
+  min-height: 15px;
+}
+
 @media screen and (min-width: 768px) {
   body {
     background-image: url(../../assets/images/Ellipse1_tabl.png),

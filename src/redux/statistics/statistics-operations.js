@@ -5,11 +5,17 @@ const { currentMonth, currentYear } = helpers.getCurrentMonthYear();
 
 const getStatistics = createAsyncThunk(
   "statistics/fetchStatistics",
-  async ({ selectedMonth = currentMonth, selectedYear = currentYear }, { rejectWithValue }) => {
+  async (
+    { selectedMonth = currentMonth, selectedYear = currentYear },
+    { getState, rejectWithValue }
+  ) => {
+    const state = getState();
+    const { isEnglishVersion } = state.global;
+
     try {
-      console.log(selectedMonth);
-      console.log(selectedYear);
-      const { data } = await axios.get(`/statistics?month=${selectedMonth}&year=${selectedYear}`);
+      const { data } = await axios.get(
+        `/statistics?month=${selectedMonth}&year=${selectedYear}&lang=${isEnglishVersion}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error);

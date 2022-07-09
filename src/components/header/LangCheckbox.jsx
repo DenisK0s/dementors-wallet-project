@@ -9,7 +9,6 @@ export default function LangCheckbox() {
   const dispatch = useDispatch();
   const { changeLanguage } = globalActions;
   const lang = useSelector(globalSelectors.lang);
-  console.log(lang);
   const handleCheckbox = (e) => {
     return e.target.checked === true
       ? (dispatch(changeLanguage(true)), i18n.changeLanguage("en"))

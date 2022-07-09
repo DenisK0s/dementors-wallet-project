@@ -1,8 +1,8 @@
 import { initReactI18next } from "react-i18next";
-import transactionRu from "./locales/ru.json";
-import transactionEn from "./locales/en.json";
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import transactionRu from "./locales/ru.json";
+import transactionEn from "./locales/en.json";
 
 const resources = {
   en: {
@@ -14,18 +14,19 @@ const resources = {
 };
 
 i18n
-  .use(initReactI18next)
   .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     resources,
     fallbackLng: "ru",
-    whitelist: resources,
     detection: {
       order: ["localStorage"],
       caches: ["localStorage"],
-      lookupCookie: "i18next",
       lookupLocalStorage: "i18nextLng",
-      lookupSessionStorage: "i18nextLng",
+    },
+    interpolation: {
+      escapeValue: false,
     },
   });
+
 export default i18n;

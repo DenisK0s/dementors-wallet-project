@@ -1,23 +1,16 @@
 import Select, { components } from "react-select";
-import IndicatorArrow from "../../assets/images/icons/categories.svg";
+import CustomIdicatorArrowIcon from "../utils/CustomIdicatorArrowIcon";
 
-export default function StatisticsSelect({ onChange, options, statsSelectPlaceholder }) {
+export default function CurrencySelect({ onChange, options, currencySelectPlaceholder, value }) {
   const DropdownIndicator = (props) => {
     return (
       <components.DropdownIndicator {...props}>
-        <img src={IndicatorArrow} alt="" width="20px" height="20px" />
+        {<CustomIdicatorArrowIcon width="10px" height="10px" stroke="#fff" />}
       </components.DropdownIndicator>
     );
   };
+
   const customStyles = {
-    container: () => ({
-      position: "relative",
-      "@media only screen and (max-width: 767.9px)": {
-        "&:first-of-type": {
-          marginRight: "10px",
-        },
-      },
-    }),
     menu: (provided, state) => ({
       ...provided,
       width: "100%",
@@ -26,24 +19,11 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       zIndex: "2",
       borderRadius: "30px",
     }),
-    menuList: (provided, state) => ({
-      ...provided,
-      paddingRight: "10px",
-      "&::-webkit-scrollbar": {
-        width: "5px",
-        boxShadow: "inset 1px 1px 10px #f3faf7",
-      },
-      "&::-webkit-scrollbar-thumb": {
-        borderRadius: "20px",
-      },
-      "&::-webkit-scrollbar-thumb:hover": {
-        backgroundColor: "#4a56e2",
-      },
-    }),
-    indicatorsContainer: () => ({
+    indicatorsContainer: (_, { selectProps: { noOptions } }) => ({
+      display: noOptions ? "none" : "block",
       width: "20px",
       height: "20px",
-      marginTop: "-8px",
+      marginTop: "-14px",
       marginRight: "10px",
     }),
     dropdownIndicator: () => ({
@@ -56,32 +36,33 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      width: "160px",
-      height: "50px",
-      border: "1px solid #000000",
+      height: "40px",
+      color: "var(--green-color)",
+      border: "1px solid #fff",
       boxSizing: "border-box",
-      borderRadius: "30px",
+      borderRadius: "50%",
       textAlign: "center",
-      "@media only screen and (max-width: 767.9px)": {
-        width: "130px",
+      "&:hover": {
+        cursor: "pointer",
       },
     }),
-    placeholder: () => ({
-      color: "var(--primary-text-color)",
+    placeholder: (_, { selectProps: { noOptions } }) => ({
+      color: "var(--green-color)",
       position: "absolute",
-      paddingLeft: "20px",
+      marginTop: "2px",
+      paddingLeft: noOptions ? "20px" : "13px",
       fontWeight: "400",
-      fontSize: "18px",
+      fontSize: "16px",
     }),
     singleValue: () => ({
       position: "absolute",
-      paddingLeft: "20px",
-      fontSize: "18px",
+      paddingLeft: "13px",
+      fontSize: "16px",
     }),
     option: (provided) => ({
       ...provided,
       textAlign: "left",
-      fontSize: "18px",
+      fontSize: "16px",
       backgroundColor: "transparent",
       color: "inherit",
       padding: "20px",
@@ -104,17 +85,20 @@ export default function StatisticsSelect({ onChange, options, statsSelectPlaceho
       },
     }),
   };
+
   return (
     <Select
       components={{ DropdownIndicator }}
       options={options}
+      noOptions={!options ? true : false}
       styles={customStyles}
-      placeholder={statsSelectPlaceholder}
+      value={value}
+      placeholder={value}
+      isDisabled={!options ? true : false}
       onChange={(e) => {
         onChange(e);
       }}
       isSearchable={false}
-      // menuIsOpen
     />
   );
 }

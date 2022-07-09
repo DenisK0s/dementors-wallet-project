@@ -1,0 +1,71 @@
+.currencyConverter {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 347px;
+  height: 130px;
+
+  padding-top: 15px;
+  border-top: 1px solid rgb(255, 255, 255, 0.4);
+}
+
+.converterActionsBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.converterTitle {
+  color: white;
+  font-family: "Circe";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.converterItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.converterItemTextField {
+  width: 80px;
+  height: 30px;
+  margin-bottom: 10px;
+  border-top: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px 5px 5px 20px;
+  color: var(--green-color);
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.arrowsIcon {
+  margin-top: 16px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.arrowsIcon:hover {
+  fill: greenyellow;
+  cursor: pointer;
+}
+
+.exchangeRateStatusLetter {
+  position: absolute;
+  top: 77px;
+  left: 168px;
+  font-size: 18px;
+  font-weight: 500;
+}

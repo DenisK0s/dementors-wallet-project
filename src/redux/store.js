@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import storageSession from "redux-persist/lib/storage/session";
 import authReducer from "./auth/auth-slice";
 import categoryReducer from "./categories/categories-slice";
-import loadingReducer from "./global/global-reducer";
+import globalReducer from "./global/global-reducer";
 import statisticsReducer from "./statistics/statistics-reducer";
 import transactionsReducer from "./transactions/transaction-reducer";
 
@@ -13,18 +13,19 @@ const authPersistConfig = {
   storage: storageSession,
   whitelist: ["token"],
 };
-const transactionsPersistConfig = {
-  key: "transactions",
+
+const globalPersistConfig = {
+  key: "lang",
   storage: storage,
-  whitelist: ["areTransactionsExist"],
+  whitelist: ["isEnglishVersion"],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoryReducer,
-    transactions: persistReducer(transactionsPersistConfig, transactionsReducer),
-    global: loadingReducer,
+    transactions: transactionsReducer,
+    global: persistReducer(globalPersistConfig, globalReducer),
     statistics: statisticsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),

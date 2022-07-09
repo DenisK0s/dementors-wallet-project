@@ -9,9 +9,11 @@ import { useLocation } from "react-router-dom";
 import s from "./DashbordComponents.module.css";
 import Modal from "../modal";
 import { ModalAddTransactionsBtn } from "../modalAddTransactions";
-import categoriesSelectors from "../../redux/categories/categories-selectors";
 import authSelectors from "../../redux/auth/auth-selectors";
 import globalSelectors from "../../redux/global/global-selectors";
+import categoriesSelectors from "../../redux/categories/categories-selectors";
+import statisticsSelectors from "../../redux/statistics/statistics-selectors";
+import { getTransactionsExistingStatus } from "../../redux/transactions/transaction-selectors";
 import transactionsOperations from "../../redux/transactions/transaction-operations";
 import statisticsOperations from "../../redux/statistics/statistics-operations";
 import categoriesOperations from "../../redux/categories/categories-operations";
@@ -19,10 +21,13 @@ import categoriesOperations from "../../redux/categories/categories-operations";
 export default function DashboardComponents() {
   const [display, setDisplay] = useState();
   const lang = useSelector(globalSelectors.lang);
-  const isModalOpen = useSelector(globalSelectors.isModalOpen);
   const test = useSelector(categoriesSelectors.getCategories);
+  const isModalOpen = useSelector(globalSelectors.isModalOpen);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const areTransactionsExist = useSelector(getTransactionsExistingStatus);
+  const isNoData = useSelector(statisticsSelectors.isNoData);
   const location = useLocation();
+  const isStatsPage = location.pathname === "/wallet/stat";
   const path = location.pathname;
   const dispatch = useDispatch();
 
@@ -30,12 +35,20 @@ export default function DashboardComponents() {
     setDisplay(path === "exchange-rate" ? true : false);
   }, [path]);
   useEffect(() => {
+    if (isNoData && !isStatsPage) {
+      dispatch(statisticsOperations.getStatistics({}));
+    }
+  }, [isNoData, !isStatsPage]);
+
+  useEffect(() => {
     if (isLoggedIn) {
       dispatch(categoriesOperations.getCategories());
     }
-    dispatch(transactionsOperations.fetchTransactions());
-    dispatch(statisticsOperations.getStatistics({}));
+    if (!areTransactionsExist) {
+      dispatch(transactionsOperations.fetchTransactions());
+    }
   }, []);
+
   return (
     <>
       <Container>

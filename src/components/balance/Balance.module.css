@@ -1,5 +1,5 @@
 .container {
-  padding: 8px 40px 13px 40px;
+  padding: 10px 40px 10px 40px;
   width: 100%;
   background-color: white;
   border-radius: 30px;
@@ -8,7 +8,7 @@
   margin-bottom: 10px;
 }
 .text {
-  font-family: 'Circe';
+  font-family: "Circe";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -19,7 +19,7 @@
 }
 
 .balance {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;

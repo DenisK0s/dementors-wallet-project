@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Oval } from "react-loader-spinner";
 import s from "./Loader.module.css";
 
@@ -17,3 +18,7 @@ export default function Loader({ extendedClassName }) {
     </div>
   );
 }
+
+Loader.propTypes = {
+  extendedClassName: PropTypes.string,
+};

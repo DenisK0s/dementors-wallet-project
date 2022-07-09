@@ -5,6 +5,16 @@
   "registerFormName": "Ваше имя",
   "registerFormLoginBtn": "Вход",
   "registerFormSignupBtn": "Регистрация",
+  "registerFormEmailErrorValidation": "Проверьте правильность введенного адреса. Должен соответствовать шаблону: email@mail.com",
+  "registerFormIsRequired": "Обязательное поле",
+  "registerFormEmailIsTooShort": "Минимум 6 символов!",
+  "registerFormEmailIsTooLong": "Не больше 30 символов!",
+  "registerFormPasswordErrorValidation": "Пожалуйста, введите пароль.",
+  "registerFormPasswordIsTooShort": "Минимум 6 символов!",
+  "registerFormPasswordIsTooLong": "Не больше 12 символов!",
+  "registerFormPasswordDontMatch": "Пароли не совпадают",
+  "registerFormNameIsTooShort": "Минимум 1 символ!",
+  "registerFormNameIsTooLong": "Не больше 12 символов!",
 
   "headerExitBtn": "Выйти",
 
@@ -21,6 +31,14 @@
   "currencyPurchase": "Покупка",
   "currencySale": "Продажа",
 
+  "converterTitle": "Конвертер",
+
+  "exchangeRateStatusBuy": "К",
+  "exchangeRateStatusSale": "П",
+
+  "exchangeRateStatusBuyTitle": "Купить",
+  "exchangeRateStatusSaleTitle": "Продать",
+
   "statisticsTitle": "Статистика",
   "statisticsCategory": "Категория",
   "statisticsAmounts": "Cумма",
@@ -36,6 +54,10 @@
   "modalAddTransactionCancelBtn": "Отмена",
   "modalAddTransactionAcceptBtn": "Добавить",
   "modalAddTransactionSelectPlaceholder": "Выберите категорию",
+  "modalAddTransactionValType": "Выберите тип транзакции 'Доход' или  'Расходы'. Это обязательное поле ",
+  "modalAddTransactionValAmount": "Введите сумму. Это обязательное поле",
+  "modalAddTransactionValCommentMax": "Максимально допустимая длинна комментария 15 символов",
+  "modalAddTransactionValNewCategoryMax": "Максимально допустимая длинна комментария 15 символов",
 
   "transactionsTableDate": "Дата",
   "transactionsTableType": "Тип",
@@ -53,7 +75,5 @@
   "progressSwitchSecure": "Надежный",
   "progressSwitchSecure100": "Защита 100%",
   "statsMonthPlaceholder": "Месяц",
-  "statsYearPlaceholder": "Год",
-
-  "infoDoesNotExist": "Данные отсутствуют !"
+  "statsYearPlaceholder": "Год"
 }

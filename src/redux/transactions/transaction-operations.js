@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import statisticsOperations from "../statistics/statistics-operations";
 import { toast } from "react-toastify";
 
 const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
-  async (page = 1, { rejectWithValue }) => {
+  async (page = 1, { rejectWithValue, dispatch }) => {
     try {
       const { data } = await axios.get(`/transactions?page=${page}`);
       return data;
@@ -16,11 +17,13 @@ const fetchTransactions = createAsyncThunk(
 
 const addTransaction = createAsyncThunk(
   "transactions/addTransaction",
-  async (transaction, { getState, rejectWithValue }) => {
+  async (transaction, { dispatch, getState, rejectWithValue }) => {
     const state = getState();
     const { isEnglishVersion } = state.global;
+    const insufficientFundsMessage = isEnglishVersion
+      ? "Insufficient funds! Make deposit first to have a positive balance."
+      : "Недостаточный баланс !!! Сначала внесите транзакцию в доходы";
     const { newCategory, date, type, comment, amount } = transaction;
-
     try {
       if (newCategory) {
         const newCategoryObj = {
@@ -40,14 +43,15 @@ const addTransaction = createAsyncThunk(
         };
 
         const { data } = await axios.post("/transactions", newTransaction);
-
+        dispatch(statisticsOperations.getStatistics({}));
         return data;
       }
 
       const response = await axios.post("/transactions", transaction);
+      dispatch(statisticsOperations.getStatistics({}));
       return response.data;
     } catch (error) {
-      toast.error("Недостаточный баланс !!! Сначала внесите транзакцию в доходы");
+      toast.error(insufficientFundsMessage);
       return rejectWithValue(error);
     }
   }
